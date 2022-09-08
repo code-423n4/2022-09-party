@@ -11,13 +11,13 @@ TODO: Light intro to product design and contract architecture.
 
 | Contract Name | LoC | Libraries | External Calls | Tags |
 |---------------|---------------|-----------|----------------|------|
-| [`crowdfund/PartyBid.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/PartyBid.sol)                  | 200 |          | IERC721, [PartyBidV1 Market Wrappers](https://github.com/PartyDAO/partybid/tree/main/contracts/market-wrapper)                | Proxy Impl, Delegatecall |
-| [`crowdfund/PartyBuy.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/PartyBuy.sol)                  | 77  |          | IERC721 | Proxy Impl |
-| [`crowdfund/PartyBuyBase.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/PartyBuyBase.sol)              | 132 |          | Arbitrary calls, ERC721 | Abstract, Arbitrary calls |
-| [`crowdfund/PartyCollectionBuy.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/PartyCollectionBuy.sol)        | 94  |          | IERC721 | Proxy Impl |
-| [`crowdfund/PartyCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/PartyCrowdfund.sol)            | 369 |          | IERC721, Globals, PartyFactory | Abstract, Accounting, Admin functions, Assembly, ETH balance, ETH transfer, Payable |
-| [`crowdfund/PartyCrowdfundFactory.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/PartyCrowdfundFactory.sol)     | 104 |          | Arbitrary calls, [Gatekeepers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/gatekeepers), Globals,  Proxy                | Arbitrary calls, Proxy Factory |
-| [`crowdfund/PartyCrowdfundNFT.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/PartyCrowdfundNFT.sol)         | 139 | solmate  | Globals, [Renderers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/renderers) | Soulbound ERC721 |
+| [`crowdfund/AuctionCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/AuctionCrowdfund.sol)                  | 200 |          | IERC721, [PartyBidV1 Market Wrappers](https://github.com/PartyDAO/partybid/tree/main/contracts/market-wrapper)                | Proxy Impl, Delegatecall |
+| [`crowdfund/BuyCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/BuyCrowdfund.sol)                  | 77  |          | IERC721 | Proxy Impl |
+| [`crowdfund/BuyCrowdfundBase.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/BuyCrowdfundBase.sol)              | 132 |          | Arbitrary calls, ERC721 | Abstract, Arbitrary calls |
+| [`crowdfund/CollectionBuyCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/CollectionBuyCrowdfund.sol)        | 94  |          | IERC721 | Proxy Impl |
+| [`crowdfund/Crowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/Crowdfund.sol)            | 369 |          | IERC721, Globals, PartyFactory | Abstract, Accounting, Admin functions, Assembly, ETH balance, ETH transfer, Payable |
+| [`crowdfund/CrowdfundFactory.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/CrowdfundFactory.sol)     | 104 |          | Arbitrary calls, [Gatekeepers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/gatekeepers), Globals,  Proxy                | Arbitrary calls, Proxy Factory |
+| [`crowdfund/CrowdfundNFT.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/CrowdfundNFT.sol)         | 139 | solmate  | Globals, [Renderers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/renderers) | Soulbound ERC721 |
 | [`distribution/TokenDistributor.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/distribution/TokenDistributor.sol)       | 360 |          | IERC20, Party | Abstract, Accounting, Admin functions, Assembly, ERC20 balance, ETH balance, ERC20 transfer, ETH transfer, Honeypot, Singleton |
 | [`globals/Globals.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/globals/Globals.sol)                     | 78  |          |                | Configuration Registry, Admin-only |
 | [`party/Party.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/party/Party.sol)                         | 39  |          |                | Proxy Impl |
@@ -27,7 +27,7 @@ TODO: Light intro to product design and contract architecture.
 | [`proposals/ArbitraryCallsProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ArbitraryCallsProposal.sol)    | 199 | | Arbitrary calls, IERC721 | Abstract, Arbitrary calls, Assembly, Decoding, Delegatecall target, ETH transfer |
 | [`proposals/FractionalizeProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/FractionalizeProposal.sol)     | 62  |  |  | Abstract, Decoding, Delegatecall target, [Fractional V1 Vault Factory](https://etherscan.io/address/0x85Aa7f78BdB2DE8F3e0c0010d99AD5853fFcfC63#code), IERC721 |
 | [`proposals/LibProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/LibProposal.sol)               | 38  |          |                | Library |
-| [`proposals/ListOnOpenSeaportProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ListOnOpenSeaportProposal.sol) | 298 |          | IERC721, [Seaport 1.1](https://etherscan.io/address/0x00000000006c3852cbEf3e08E8dF289169EdE581#code)               | Abstract, Assembly, Decoding, Delegatecall target, Memory Hack, Multi-Step |
+| [`proposals/ListOnOpenseaProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ListOnOpenseaProposal.sol) | 298 |          | IERC721, [Seaport 1.1](https://etherscan.io/address/0x00000000006c3852cbEf3e08E8dF289169EdE581#code)               | Abstract, Assembly, Decoding, Delegatecall target, Memory Hack, Multi-Step |
 | [`proposals/ListOnZoraProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ListOnZoraProposal.sol)        | 163 |          | IERC721, [Zora Auction House V1](https://etherscan.io/address/0xE468cE99444174Bd3bBBEd09209577d25D1ad673#code)               | Abstract, Decoding, Delegatecall target, Revert Handling, Multi-Step  |
 | [`proposals/ProposalExecutionEngine.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ProposalExecutionEngine.sol)   | 214 |          |                | Assembly, Decoding, Delegatecall target, Stateful, Storage, Upgradable |
 | [`proposals/ProposalStorage.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ProposalStorage.sol)           | 55  |          |                | Abstract, Assembly, Delegatecall, Delegatecall target, Storage |
@@ -43,6 +43,35 @@ TODO: Light intro to product design and contract architecture.
 | [`utils/Proxy.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/utils/Proxy.sol)                         | 31  |          | Proxy Impl     | Assembly, Delegatecall, Fallback, Low-Level call, Proxy |
 | [`utils/ReadOnlyDelegateCall.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/utils/ReadOnlyDelegateCall.sol)          | 32  |          | Arbitrary calls               | Abstract, Delegatecall, Delegatecall target, Decoding, EVM Hack, Solidity Hack |
 
+
+## Inheritance Graph
+
+Here's an abbreviated inheritance graph of the major contracts in the protocol (leaf nodes are deployable):
+
+```
+                              ┌─────►AuctionCrowdfund
+                              │
+CrowdfundNFT─────►Crowdfund───┤                           ┌─────►BuyCrowdfund
+                              │                           │
+                              └─────►BuyCrowdfundBase─────┤     
+                                                          │
+                                                          └─────►CollectionBuyCrowdfund
+                           
+
+
+PartyGovernance──────►PartyGovernanceNFT──────►Party
+
+
+
+
+ListOnOpenseaProposal────┐
+                         │
+ListOnZoraProposal───────┤
+                         ├─────►ProposalExecutionEngine
+FractionalizeProposal────┤
+                         │
+ArbitraryCallsProposal───┘
+```
 
 ## Areas of Concern / Unique Approaches
 

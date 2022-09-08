@@ -11,7 +11,7 @@ TODO: Light intro to product design and contract architecture.
 
 | Contract Name | LoC | Libraries | External Calls | Tags |
 |---------------|---------------|-----------|----------------|------|
-| [`crowdfund/AuctionCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/AuctionCrowdfund.sol)                  | 200 |          | IERC721, [PartyBidV1 Market Wrappers](https://github.com/PartyDAO/partybid/tree/main/contracts/market-wrapper)                | Proxy Impl, Delegatecall |
+| [`crowdfund/AuctionCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/AuctionCrowdfund.sol)                  | 200 |          | IERC721, [PartyBidV1 Market Wrappers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/market-wrapper)                | Proxy Impl, Delegatecall |
 | [`crowdfund/BuyCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/BuyCrowdfund.sol)                  | 77  |          | IERC721 | Proxy Impl |
 | [`crowdfund/BuyCrowdfundBase.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/BuyCrowdfundBase.sol)              | 132 |          | Arbitrary calls, ERC721 | Abstract, Arbitrary calls |
 | [`crowdfund/CollectionBuyCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/CollectionBuyCrowdfund.sol)        | 94  |          | IERC721 | Proxy Impl |

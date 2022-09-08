@@ -11,37 +11,37 @@ TODO: Light intro to product design and contract architecture.
 
 | Contract Name | LoC | Libraries | External Calls | Tags |
 |---------------|---------------|-----------|----------------|------|
-| `crowdfund/PartyBid.sol`                  | 200 |          | IERC721, [PartyBidV1 Market Wrappers](https://github.com/PartyDAO/partybid/tree/main/contracts/market-wrapper)                | Proxy Impl, Delegatecall |
-| `crowdfund/PartyBuy.sol`                  | 77  |          | IERC721 | Proxy Impl |
-| `crowdfund/PartyBuyBase.sol`              | 132 |          | Arbitrary calls, ERC721 | Abstract, Arbitrary calls |
-| `crowdfund/PartyCollectionBuy.sol`        | 94  |          | IERC721 | Proxy Impl |
-| `crowdfund/PartyCrowdfund.sol`            | 369 |          | IERC721, Globals, PartyFactory | Abstract, Accounting, Admin functions, Assembly, ETH balance, ETH transfer, Payable |
-| `crowdfund/PartyCrowdfundFactory.sol`     | 104 |          | Arbitrary calls, [Gatekeepers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/gatekeepers), Globals,  Proxy                | Arbitrary calls, Proxy Factory |
-| `crowdfund/PartyCrowdfundNFT.sol`         | 139 | solmate  | Globals, [Renderers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/renderers) | Soulbound ERC721 |
-| `distribution/TokenDistributor.sol`       | 360 |          | IERC20, Party | Abstract, Accounting, Admin functions, Assembly, ERC20 balance, ETH balance, ERC20 transfer, ETH transfer, Honeypot, Singleton |
-| `globals/Globals.sol`                     | 78  |          |                | Configuration Registry, Admin-only |
-| `party/Party.sol`                         | 39  |          |                | Proxy Impl |
-| `party/PartyFactory.sol`                  | 47  |          | Proxy, Globals | Proxy Factory |
-| `party/PartyGovernance.sol`               | 853 |          | IERC20, TokenDistributor | Abstract, Admin functions, Assembly, Delegatecall, ETH balance, Fallback, Governance, Roles, Snapshots |
-| `party/PartyGovernanceNFT.sol`            | 150 | solmate | Globals, [Renderers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/renderers) | Abstract, ERC721, Minting |
-| `proposals/ArbitraryCallsProposal.sol`    | 199 | | Arbitrary calls, IERC721 | Abstract, Arbitrary calls, Assembly, Decoding, Delegatecall target, ETH transfer |
-| `proposals/FractionalizeProposal.sol`     | 62  |  |  | Abstract, Decoding, Delegatecall target, [Fractional V1 Vault Factory](https://etherscan.io/address/0x85Aa7f78BdB2DE8F3e0c0010d99AD5853fFcfC63#code), IERC721 |
-| `proposals/LibProposal.sol`               | 38  |          |                | Library |
-| `proposals/ListOnOpenSeaportProposal.sol` | 298 |          | IERC721, [Seaport 1.1](https://etherscan.io/address/0x00000000006c3852cbEf3e08E8dF289169EdE581#code)               | Abstract, Assembly, Decoding, Delegatecall target, Memory Hack, Multi-Step |
-| `proposals/ListOnZoraProposal.sol`        | 163 |          | IERC721, [Zora Auction House V1](https://etherscan.io/address/0xE468cE99444174Bd3bBBEd09209577d25D1ad673#code)               | Abstract, Decoding, Delegatecall target, Revert Handling, Multi-Step  |
-| `proposals/ProposalExecutionEngine.sol`   | 214 |          |                | Assembly, Decoding, Delegatecall target, Stateful, Storage, Upgradable |
-| `proposals/ProposalStorage.sol`           | 55  |          |                | Abstract, Assembly, Delegatecall, Delegatecall target, Storage |
-| `tokens/ERC1155Receiver.sol`              | 19  | solmate  |                | Abstract, EIP165, ERC1155 |
-| `tokens/ERC721Receiver.sol`               | 28  | solmate  |                | Abstract, EIP165, ERC721 |
-| `utils/EIP165.sol`                        | 12  |          |                | Abstract, EIP165 |
-| `utils/Implementation.sol`                | 26  |          |                | Abstract, Assembly, EVM Hacks |
-| `utils/LibAddress.sol`                    | 14  |          |                | Library, ETH Transfer |
-| `utils/LibERC20Compat.sol`                | 29  |          | IERC20         | Assembly, Decoding, ERC20, Library, Low-Level call |
-| `utils/LibRawResult.sol`                  | 17  |          |                | Assembly, Library |
-| `utils/LibSafeCast.sol`                   | 64  |          |                | Integer Casting, Library |
-| `utils/LibSafeERC721.sol`                 | 24  |          | IERC721        | Decoding, ERC721, Library, Low-Level call |
-| `utils/Proxy.sol`                         | 31  |          | Proxy Impl     | Assembly, Delegatecall, Fallback, Low-Level call, Proxy |
-| `utils/ReadOnlyDelegateCall.sol`          | 32  |          | Arbitrary calls               | Abstract, Delegatecall, Delegatecall target, Decoding, EVM Hack, Solidity Hack |
+| [`crowdfund/PartyBid.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/crowdfund/PartyBid.sol)                  | 200 |          | IERC721, [PartyBidV1 Market Wrappers](https://github.com/PartyDAO/partybid/tree/main/contracts/market-wrapper)                | Proxy Impl, Delegatecall |
+| [`crowdfund/PartyBuy.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/crowdfund/PartyBuy.sol)                  | 77  |          | IERC721 | Proxy Impl |
+| [`crowdfund/PartyBuyBase.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/crowdfund/PartyBuyBase.sol)              | 132 |          | Arbitrary calls, ERC721 | Abstract, Arbitrary calls |
+| [`crowdfund/PartyCollectionBuy.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/crowdfund/PartyCollectionBuy.sol)        | 94  |          | IERC721 | Proxy Impl |
+| [`crowdfund/PartyCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/crowdfund/PartyCrowdfund.sol)            | 369 |          | IERC721, Globals, PartyFactory | Abstract, Accounting, Admin functions, Assembly, ETH balance, ETH transfer, Payable |
+| [`crowdfund/PartyCrowdfundFactory.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/crowdfund/PartyCrowdfundFactory.sol)     | 104 |          | Arbitrary calls, [Gatekeepers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/gatekeepers), Globals,  Proxy                | Arbitrary calls, Proxy Factory |
+| [`crowdfund/PartyCrowdfundNFT.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/crowdfund/PartyCrowdfundNFT.sol)         | 139 | solmate  | Globals, [Renderers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/renderers) | Soulbound ERC721 |
+| [`distribution/TokenDistributor.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/distribution/TokenDistributor.sol)       | 360 |          | IERC20, Party | Abstract, Accounting, Admin functions, Assembly, ERC20 balance, ETH balance, ERC20 transfer, ETH transfer, Honeypot, Singleton |
+| [`globals/Globals.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/globals/Globals.sol)                     | 78  |          |                | Configuration Registry, Admin-only |
+| [`party/Party.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/party/Party.sol)                         | 39  |          |                | Proxy Impl |
+| [`party/PartyFactory.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/party/PartyFactory.sol)                  | 47  |          | Proxy, Globals | Proxy Factory |
+| [`party/PartyGovernance.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/party/PartyGovernance.sol)               | 853 |          | IERC20, TokenDistributor | Abstract, Admin functions, Assembly, Delegatecall, ETH balance, Fallback, Governance, Roles, Snapshots |
+| [`party/PartyGovernanceNFT.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/party/PartyGovernanceNFT.sol)            | 150 | solmate | Globals, [Renderers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/renderers) | Abstract, ERC721, Minting |
+| [`proposals/ArbitraryCallsProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/proposals/ArbitraryCallsProposal.sol)    | 199 | | Arbitrary calls, IERC721 | Abstract, Arbitrary calls, Assembly, Decoding, Delegatecall target, ETH transfer |
+| [`proposals/FractionalizeProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/proposals/FractionalizeProposal.sol)     | 62  |  |  | Abstract, Decoding, Delegatecall target, [Fractional V1 Vault Factory](https://etherscan.io/address/0x85Aa7f78BdB2DE8F3e0c0010d99AD5853fFcfC63#code), IERC721 |
+| [`proposals/LibProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/proposals/LibProposal.sol)               | 38  |          |                | Library |
+| [`proposals/ListOnOpenSeaportProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/proposals/ListOnOpenSeaportProposal.sol) | 298 |          | IERC721, [Seaport 1.1](https://etherscan.io/address/0x00000000006c3852cbEf3e08E8dF289169EdE581#code)               | Abstract, Assembly, Decoding, Delegatecall target, Memory Hack, Multi-Step |
+| [`proposals/ListOnZoraProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/proposals/ListOnZoraProposal.sol)        | 163 |          | IERC721, [Zora Auction House V1](https://etherscan.io/address/0xE468cE99444174Bd3bBBEd09209577d25D1ad673#code)               | Abstract, Decoding, Delegatecall target, Revert Handling, Multi-Step  |
+| [`proposals/ProposalExecutionEngine.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/proposals/ProposalExecutionEngine.sol)   | 214 |          |                | Assembly, Decoding, Delegatecall target, Stateful, Storage, Upgradable |
+| [`proposals/ProposalStorage.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/proposals/ProposalStorage.sol)           | 55  |          |                | Abstract, Assembly, Delegatecall, Delegatecall target, Storage |
+| [`tokens/ERC1155Receiver.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/tokens/ERC1155Receiver.sol)              | 19  | solmate  |                | Abstract, EIP165, ERC1155 |
+| [`tokens/ERC721Receiver.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/tokens/ERC721Receiver.sol)               | 28  | solmate  |                | Abstract, EIP165, ERC721 |
+| [`utils/EIP165.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/utils/EIP165.sol)                        | 12  |          |                | Abstract, EIP165 |
+| [`utils/Implementation.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/utils/Implementation.sol)                | 26  |          |                | Abstract, Assembly, EVM Hacks |
+| [`utils/LibAddress.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/utils/LibAddress.sol)                    | 14  |          |                | Library, ETH Transfer |
+| [`utils/LibERC20Compat.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/utils/LibERC20Compat.sol)                | 29  |          | IERC20         | Assembly, Decoding, ERC20, Library, Low-Level call |
+| [`utils/LibRawResult.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/utils/LibRawResult.sol)                  | 17  |          |                | Assembly, Library |
+| [`utils/LibSafeCast.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/utils/LibSafeCast.sol)                   | 64  |          |                | Integer Casting, Library |
+| [`utils/LibSafeERC721.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/utils/LibSafeERC721.sol)                 | 24  |          | IERC721        | Decoding, ERC721, Library, Low-Level call |
+| [`utils/Proxy.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/utils/Proxy.sol)                         | 31  |          | Proxy Impl     | Assembly, Delegatecall, Fallback, Low-Level call, Proxy |
+| [`utils/ReadOnlyDelegateCall.sol`](https://github.com/PartyDAO/party-contracts-c4/contracts/utils/ReadOnlyDelegateCall.sol)          | 32  |          | Arbitrary calls               | Abstract, Delegatecall, Delegatecall target, Decoding, EVM Hack, Solidity Hack |
 
 
 ## Areas of Concern / Unique Approaches

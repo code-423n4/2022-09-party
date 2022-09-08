@@ -27,12 +27,12 @@ docs/ # Start here
 contracts/
 │   # Used during the crowdfund phase
 ├── crowdfund/
-│   ├── PartyBid.sol
-│   ├── PartyBuy.sol
-│   ├── PartyCollectionBuy.sol
-│   ├── PartyCrowdfundFactory.sol
-│   ├── PartyCrowdfund.sol
-│   └── PartyCrowdfundNFT.sol
+│   ├── AuctionCrowdfund.sol
+│   ├── BuyCrowdfund.sol
+│   ├── CollectionBuyCrowdfund.sol
+│   ├── CrowdfundFactory.sol
+│   ├── Crowdfund.sol
+│   └── CrowdfundNFT.sol
 ├── gatekeepers/
 │   ├── AllowListGateKeeper.sol
 │   └── TokenGateKeeper.sol
@@ -48,13 +48,13 @@ contracts/
 │   ├── ProposalExecutionEngine.sol
 │   ├── ArbitraryCallsProposal.sol
 │   ├── FractionalizeProposal.sol
-│   ├── ListOnOpenSeaportProposal.sol
+│   ├── ListOnOpenseaProposal.sol
 │   └── ListOnZoraProposal.sol
 ├── distribution/
 │   └── TokenDistributor.sol
 |   # Used to render crowdfund and governance NFTs
 └── renderers/
-    ├── PartyCrowdfundNFTRenderer.sol
+    ├── CrowdfundNFTRenderer.sol
     └── PartyGovernanceNFTRenderer.sol
 sol-tests/ # Foundry tests
 tests/ # TS tests
@@ -132,23 +132,7 @@ ArbitraryCallsProposal───┘
 
 ## Areas of Concern / Unique Approaches
 
-- Proposal Engine shared execution context, upgrade mechanism
-- Unconventional Reentrancy Guards
-- Ruggability
-- TokenDistributor
-    - honeypot
-    - internal balance + transfer
-- Sus Revert Handling
-- Storage Buckets
-- Lost ETH if NFT gifted in CF?
-...
-
-
-
-
-.......
-
-
+- Throughout both phases of the product (crowdfund and governance), we rely heavily on external protocols. It’s critical that our integrations with them are correct. The governance proposal contracts (`ListOnOpenseaProposal`, `ListOnZoraProposal`, `ListOnFractionalProposal`) are areas of highest concern because a bad integration there can either cause the loss of an NFT held by the party or can brick the party until the proposal can be canceled.
 
 # ✨ So you want to sponsor a contest
 

@@ -16,14 +16,14 @@ TODO: Light intro to product design and contract architecture.
 | `crowdfund/PartyBuyBase.sol`              | 132 |          | Arbitrary calls, ERC721 | Abstract, Arbitrary calls |
 | `crowdfund/PartyCollectionBuy.sol`        | 94  |          | IERC721 | Proxy Impl |
 | `crowdfund/PartyCrowdfund.sol`            | 369 |          | IERC721, Globals, PartyFactory | Abstract, Accounting, Admin functions, Assembly, ETH balance, ETH transfer, Payable |
-| `crowdfund/PartyCrowdfundFactory.sol`     | 104 |          | Arbitrary calls, [Gatekeepers](https://github.com/PartyDAO/partybid/tree/main/contracts/gatekeepers), Globals,  Proxy                | Arbitrary calls, Proxy Factory |
-| `crowdfund/PartyCrowdfundNFT.sol`         | 139 | solmate  | Globals, [Renderers](https://github.com/PartyDAO/partybid/tree/main/contracts/renderers) | Soulbound ERC721 |
+| `crowdfund/PartyCrowdfundFactory.sol`     | 104 |          | Arbitrary calls, [Gatekeepers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/gatekeepers), Globals,  Proxy                | Arbitrary calls, Proxy Factory |
+| `crowdfund/PartyCrowdfundNFT.sol`         | 139 | solmate  | Globals, [Renderers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/renderers) | Soulbound ERC721 |
 | `distribution/TokenDistributor.sol`       | 360 |          | IERC20, Party | Abstract, Accounting, Admin functions, Assembly, ERC20 balance, ETH balance, ERC20 transfer, ETH transfer, Honeypot, Singleton |
 | `globals/Globals.sol`                     | 78  |          |                | Configuration Registry, Admin-only |
 | `party/Party.sol`                         | 39  |          |                | Proxy Impl |
 | `party/PartyFactory.sol`                  | 47  |          | Proxy, Globals | Proxy Factory |
 | `party/PartyGovernance.sol`               | 853 |          | IERC20, TokenDistributor | Abstract, Admin functions, Assembly, Delegatecall, ETH balance, Fallback, Governance, Roles, Snapshots |
-| `party/PartyGovernanceNFT.sol`            | 150 | solmate | Globals, [Renderers](https://github.com/PartyDAO/partybid/tree/main/contracts/renderers) | Abstract, ERC721, Minting |
+| `party/PartyGovernanceNFT.sol`            | 150 | solmate | Globals, [Renderers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/renderers) | Abstract, ERC721, Minting |
 | `proposals/ArbitraryCallsProposal.sol`    | 199 | | Arbitrary calls, IERC721 | Abstract, Arbitrary calls, Assembly, Decoding, Delegatecall target, ETH transfer |
 | `proposals/FractionalizeProposal.sol`     | 62  |  |  | Abstract, Decoding, Delegatecall target, [Fractional V1 Vault Factory](https://etherscan.io/address/0x85Aa7f78BdB2DE8F3e0c0010d99AD5853fFcfC63#code), IERC721 |
 | `proposals/LibProposal.sol`               | 38  |          |                | Library |

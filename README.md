@@ -49,7 +49,7 @@ sol-tests/ # Foundry tests
 tests/ # TS tests
 ```
 
-![contract diagram](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/contract-lifecycle.png)
+![contract lifecycle](./contract-lifecycle.png)
 
 ## Contest Scope
 

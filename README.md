@@ -49,14 +49,14 @@ TODO: Light intro to product design and contract architecture.
 Here's an abbreviated inheritance graph of the major contracts in the protocol (leaf nodes are deployable):
 
 ```
-                              ┌─────►AuctionCrowdfund
+                              ┌─────►AuctionCrowdfund
                               │
 CrowdfundNFT─────►Crowdfund───┤                           ┌─────►BuyCrowdfund
                               │                           │
-                              └─────►BuyCrowdfundBase─────┤     
+                              └─────►BuyCrowdfundBase─────┤
                                                           │
                                                           └─────►CollectionBuyCrowdfund
-                           
+
 
 
 PartyGovernance──────►PartyGovernanceNFT──────►Party

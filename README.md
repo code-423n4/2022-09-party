@@ -2,8 +2,8 @@
 ## Resources
 - [Code](https://github.com/PartyDAO/party-contracts-c4)
 - [Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs)
-    - [Crowdfund Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/crowdfund)
-    - [Governance Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/governance)
+    - [Crowdfund Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/crowdfund.md)
+    - [Governance Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/governance.md)
 
 ## Contest Scope
 
@@ -22,7 +22,7 @@ TODO: Light intro to product design and contract architecture.
 | [`globals/Globals.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/globals/Globals.sol)                     | 78  |          |                | Configuration Registry, Admin-only |
 | [`party/Party.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/party/Party.sol)                         | 39  |          |                | Proxy Impl |
 | [`party/PartyFactory.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/party/PartyFactory.sol)                  | 47  |          | Proxy, Globals | Proxy Factory |
-| [`party/PartyGovernance.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/party/PartyGovernance.sol)               | 853 |          | IERC20, TokenDistributor | Abstract, Admin functions, Assembly, Delegatecall, ETH balance, Fallback, Governance, Roles, Snapshots |
+| [`party/PartyGovernance.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/party/PartyGovernance.sol)               | 853 |          | IERC20, TokenDistributor | Abstract, Admin functions, Assembly, Delegatecall, ETH balance, Fallback, Governance, Payable, Roles, Snapshots |
 | [`party/PartyGovernanceNFT.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/party/PartyGovernanceNFT.sol)            | 150 | solmate | Globals, [Renderers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/renderers) | Abstract, ERC721, Minting |
 | [`proposals/ArbitraryCallsProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ArbitraryCallsProposal.sol)    | 199 | | Arbitrary calls, IERC721 | Abstract, Arbitrary calls, Assembly, Decoding, Delegatecall target, ETH transfer |
 | [`proposals/FractionalizeProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/FractionalizeProposal.sol)     | 62  |  |  | Abstract, Decoding, Delegatecall target, [Fractional V1 Vault Factory](https://etherscan.io/address/0x85Aa7f78BdB2DE8F3e0c0010d99AD5853fFcfC63#code), IERC721 |

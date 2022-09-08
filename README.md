@@ -1,10 +1,76 @@
+
+## Resources
+- [Code](https://github.com/PartyDAO/party-contracts-c4)
+- [Documentation](https://github.com/PartyDAO/party-contracts-c4/docs)
+    - [Crowdfund Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/docs/crowdfund)
+    - [Governance Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/docs/governance)
+
+## Contest Scope
+
+TODO: Light intro to product design and contract architecture.
+
+| Contract Name | LoC | Libraries | External Calls | Tags |
+|---------------|---------------|-----------|----------------|------|
+| `crowdfund/PartyBid.sol`                  | 200 |          | IERC721, [PartyBidV1 Market Wrappers](https://github.com/PartyDAO/partybid/tree/main/contracts/market-wrapper)                | Proxy Impl, Delegatecall |
+| `crowdfund/PartyBuy.sol`                  | 77  |          | IERC721 | Proxy Impl |
+| `crowdfund/PartyBuyBase.sol`              | 132 |          | Arbitrary calls, ERC721 | Abstract, Arbitrary calls |
+| `crowdfund/PartyCollectionBuy.sol`        | 94  |          | IERC721 | Proxy Impl |
+| `crowdfund/PartyCrowdfund.sol`            | 369 |          | IERC721, Globals, PartyFactory | Abstract, Accounting, Admin functions, Assembly, ETH balance, ETH transfer, Payable |
+| `crowdfund/PartyCrowdfundFactory.sol`     | 104 |          | Arbitrary calls, [Gatekeepers](https://github.com/PartyDAO/partybid/tree/main/contracts/gatekeepers), Globals,  Proxy                | Arbitrary calls, Proxy Factory |
+| `crowdfund/PartyCrowdfundNFT.sol`         | 139 | solmate  | Globals, [Renderers](https://github.com/PartyDAO/partybid/tree/main/contracts/renderers) | Soulbound ERC721 |
+| `distribution/TokenDistributor.sol`       | 360 |          | IERC20, Party | Abstract, Accounting, Admin functions, Assembly, ERC20 balance, ETH balance, ERC20 transfer, ETH transfer, Honeypot, Singleton |
+| `globals/Globals.sol`                     | 78  |          |                | Configuration Registry, Admin-only |
+| `party/Party.sol`                         | 39  |          |                | Proxy Impl |
+| `party/PartyFactory.sol`                  | 47  |          | Proxy, Globals | Proxy Factory |
+| `party/PartyGovernance.sol`               | 853 |          | IERC20, TokenDistributor | Abstract, Admin functions, Assembly, Delegatecall, ETH balance, Fallback, Governance, Roles, Snapshots |
+| `party/PartyGovernanceNFT.sol`            | 150 | solmate | Globals, [Renderers](https://github.com/PartyDAO/partybid/tree/main/contracts/renderers) | Abstract, ERC721, Minting |
+| `proposals/ArbitraryCallsProposal.sol`    | 199 | | Arbitrary calls, IERC721 | Abstract, Arbitrary calls, Assembly, Decoding, Delegatecall target, ETH transfer |
+| `proposals/FractionalizeProposal.sol`     | 62  |  |  | Abstract, Decoding, Delegatecall target, [Fractional V1 Vault Factory](https://etherscan.io/address/0x85Aa7f78BdB2DE8F3e0c0010d99AD5853fFcfC63#code), IERC721 |
+| `proposals/LibProposal.sol`               | 38  |          |                | Library |
+| `proposals/ListOnOpenSeaportProposal.sol` | 298 |          | IERC721, [Seaport 1.1](https://etherscan.io/address/0x00000000006c3852cbEf3e08E8dF289169EdE581#code)               | Abstract, Assembly, Decoding, Delegatecall target, Memory Hack, Multi-Step |
+| `proposals/ListOnZoraProposal.sol`        | 163 |          | IERC721, [Zora Auction House V1](https://etherscan.io/address/0xE468cE99444174Bd3bBBEd09209577d25D1ad673#code)               | Abstract, Decoding, Delegatecall target, Revert Handling, Multi-Step  |
+| `proposals/ProposalExecutionEngine.sol`   | 214 |          |                | Assembly, Decoding, Delegatecall target, Stateful, Storage, Upgradable |
+| `proposals/ProposalStorage.sol`           | 55  |          |                | Abstract, Assembly, Delegatecall, Delegatecall target, Storage |
+| `tokens/ERC1155Receiver.sol`              | 19  | solmate  |                | Abstract, EIP165, ERC1155 |
+| `tokens/ERC721Receiver.sol`               | 28  | solmate  |                | Abstract, EIP165, ERC721 |
+| `utils/EIP165.sol`                        | 12  |          |                | Abstract, EIP165 |
+| `utils/Implementation.sol`                | 26  |          |                | Abstract, Assembly, EVM Hacks |
+| `utils/LibAddress.sol`                    | 14  |          |                | Library, ETH Transfer |
+| `utils/LibERC20Compat.sol`                | 29  |          | IERC20         | Assembly, Decoding, ERC20, Library, Low-Level call |
+| `utils/LibRawResult.sol`                  | 17  |          |                | Assembly, Library |
+| `utils/LibSafeCast.sol`                   | 64  |          |                | Integer Casting, Library |
+| `utils/LibSafeERC721.sol`                 | 24  |          | IERC721        | Decoding, ERC721, Library, Low-Level call |
+| `utils/Proxy.sol`                         | 31  |          | Proxy Impl     | Assembly, Delegatecall, Fallback, Low-Level call, Proxy |
+| `utils/ReadOnlyDelegateCall.sol`          | 32  |          | Arbitrary calls               | Abstract, Delegatecall, Delegatecall target, Decoding, EVM Hack, Solidity Hack |
+
+
+## Areas of Concern / Unique Approaches
+
+- Proposal Engine shared execution context, upgrade mechanism
+- Unconventional Reentrancy Guards
+- Ruggability
+- TokenDistributor
+    - honeypot
+    - internal balance + transfer
+- Sus Revert Handling
+- Storage Buckets
+- Lost ETH if NFT gifted in CF?
+...
+
+
+
+
+.......
+
+
+
 # ✨ So you want to sponsor a contest
 
 This `README.md` contains a set of checklists for our contest collaboration.
 
-Your contest will use two repos: 
+Your contest will use two repos:
 - **a _contest_ repo** (this one), which is used for scoping your contest and for providing information to contestants (wardens)
-- **a _findings_ repo**, where issues are submitted (shared with you after the contest) 
+- **a _findings_ repo**, where issues are submitted (shared with you after the contest)
 
 Ultimately, when we launch the contest, this contest repo will be made public and will contain the smart contracts to be reviewed and all the information needed for contest participants. The findings repo will be made public after the contest report is published and your team has mitigated the identified issues.
 

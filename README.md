@@ -1,3 +1,14 @@
+# Contest Details
+
+- $71,250 USDC main award pot
+- $3,750 USDC gas optimization award pot
+- Join [C4 Discord](https://discord.gg/code4rena) to register
+- Submit findings [using the C4 form](https://code4rena.com/contests/2022-09-party-contest/submit)
+- [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
+- Starts September 12, 2022 20:00 UTC
+- Ends September 19, 2022 20:00 UTC
+
+[ ⭐️ SPONSORS ADD INFO HERE ]
 
 ## Resources
 - [Code](https://github.com/PartyDAO/party-contracts-c4)
@@ -185,16 +196,3 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 - [ ] Share it with your own communities (blog, Discord, Telegram, email newsletters, etc.)
 - [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
 - [ ] Delete this checklist and all text above the line below when you're ready.
-
----
-
-# Sponsorname contest details
-- $71,250 USDC main award pot
-- $3,750 USDC gas optimization award pot
-- Join [C4 Discord](https://discord.gg/code4rena) to register
-- Submit findings [using the C4 form](https://code4rena.com/contests/2022-09-party-contest/submit)
-- [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
-- Starts September 12, 2022 20:00 UTC
-- Ends September 19, 2022 20:00 UTC
-
-[ ⭐️ SPONSORS ADD INFO HERE ]

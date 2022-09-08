@@ -1,3 +1,5 @@
+**NOTE:** The code for this contest is located [here](https://github.com/PartyDAO/party-contracts-c4).
+
 # Contest Details
 
 - $71,250 USDC main award pot
@@ -189,3 +191,7 @@ There are two different upgrade models at play in the protocol. One is through t
 - Party hosts have unilateral veto power on any proposal. Hosts can essentially block a governance party in this way. Therefore crowdfunds must be extremely careful with their host selection.
 - Because voting power is represented by governance NFTs proportional to their (used) crowdfund contribution, it limits the ways voting power can be distributed across party members. The lack of quorum or "no" votes can amplify this situation. For example, if someone contributed 51% of the ETH to a crowdfund and the passing threshold for that governance party is also 51%, whoever holds that governance NFT will always be able to pass proposals unless a host vetoes them.
 - Canceling an `InProgress` proposal (mid-step) can leave the governance party in a vulnerable or undesirable state because there is no cleanup logic run during a cancel. For example, if a party cancels a Zora proposal while the Zora auction is active, the party will no longer possess the NFT (because Zora is custodial), and must either wait for the auction to conclude or execute an arbitrary call to cancel the action (directly on Zora) in order to retrieve it.
+
+## License
+
+This code is provided under the Beta Software License Agreement.

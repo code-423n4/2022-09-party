@@ -2,8 +2,54 @@
 ## Resources
 - [Code](https://github.com/PartyDAO/party-contracts-c4)
 - [Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs)
+    - [Overview](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/overview.md)
     - [Crowdfund Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/crowdfund.md)
     - [Governance Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/governance.md)
+
+## Layout
+
+```
+docs/ # Start here
+├── overview.md
+├── crowdfund.md
+└── governance.md
+contracts/
+│   # Used during the crowdfund phase
+├── crowdfund/
+│   ├── PartyBid.sol
+│   ├── PartyBuy.sol
+│   ├── PartyCollectionBuy.sol
+│   ├── PartyCrowdfundFactory.sol
+│   ├── PartyCrowdfund.sol
+│   └── PartyCrowdfundNFT.sol
+├── gatekeepers/
+│   ├── AllowListGateKeeper.sol
+│   └── TokenGateKeeper.sol
+├── globals/
+│   └── Globals.sol
+│   # Used during the governance phase
+├── party/
+│   ├── Party.sol
+│   ├── PartyFactory.sol
+│   ├── PartyGovernance.sol
+│   └── PartyGovernanceNFT.sol
+├── proposals/
+│   ├── ProposalExecutionEngine.sol
+│   ├── ArbitraryCallsProposal.sol
+│   ├── FractionalizeProposal.sol
+│   ├── ListOnOpenSeaportProposal.sol
+│   └── ListOnZoraProposal.sol
+├── distribution/
+│   └── TokenDistributor.sol
+|   # Used to render crowdfund and governance NFTs
+└── renderers/
+    ├── PartyCrowdfundNFTRenderer.sol
+    └── PartyGovernanceNFTRenderer.sol
+sol-tests/ # Foundry tests
+tests/ # TS tests
+```
+
+![contract diagram](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/contract-lifecycle.png)
 
 ## Contest Scope
 

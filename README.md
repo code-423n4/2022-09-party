@@ -46,14 +46,14 @@
 Here's an example one-liner to immediately get started with the codebase. It will clone the project, build it, and run every test (with gas reports).
 
 ```bash
-export YOUR_RPC_URL='<your_alchemy_mainnet_url_goes_here>' && rm -Rf party-contracts-c4 || true && git clone https://github.com/PartyDAO/party-contracts-c4 && cd party-contracts-c4 && foundryup && forge install && yarn -D && yarn build && yarn test:gas && forge test -m testFork --fork-url $YOUR_RPC_URL
+export YOUR_RPC_URL='<your_alchemy_mainnet_url_goes_here>' && rm -Rf party-contracts-c4 || true && git clone https://github.com/PartyDAO/party-contracts-c4 && cd party-contracts-c4 && foundryup && forge install && yarn -D && yarn build && yarn test:gas && forge test -m testFork --fork-url $YOUR_RPC_URL --gas-report
 ```
 
 Refer to the [code repo README](https://github.com/PartyDAO/party-contracts-c4) for targeted, individual test commands you can run.
 
 ## Slither Issue
 
-Note that we were unable slither does not seem to be working with the repo as-is 🤷, resulting in an enum type not found error:
+Note that slither does not seem to be working with the repo as-is 🤷, resulting in an enum type not found error:
 
 ```
 slither.solc_parsing.exceptions.ParsingError: Type not found enum Crowdfund.CrowdfundLifecycle

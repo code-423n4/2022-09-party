@@ -194,4 +194,4 @@ There are two different upgrade models at play in the protocol. One is through t
 
 ## License
 
-This code is provided under the Beta Software License Agreement.
+This code is provided under the [Beta Software License Agreement](https://github.com/PartyDAO/party-contracts-c4/blob/main/LICENSE.pdf).

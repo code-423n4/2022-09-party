@@ -1,5 +1,3 @@
-### 🚨🚨🚨🚨 The code and docs for this contest is located [[PartyDAO Protocol Repo]](https://github.com/PartyDAO/party-contracts-c4). 🚨🚨🚨🚨
-
 # Party DAO Contest Details
 
 - $71,250 USDC main award pot
@@ -9,6 +7,8 @@
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts September 12, 2022 20:00 UTC
 - Ends September 19, 2022 20:00 UTC
+
+### 🚨🚨🚨🚨 The code and docs for this contest is located [[PartyDAO Protocol Repo]](https://github.com/PartyDAO/party-contracts-c4). 🚨🚨🚨🚨
 
 ## Resources
 

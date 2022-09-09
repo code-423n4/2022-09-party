@@ -49,7 +49,9 @@ Here's an example one-liner to immediately get started with the codebase. It wil
 export YOUR_RPC_URL='<your_alchemy_mainnet_url_goes_here>' && rm -Rf party-contracts-c4 || true && git clone https://github.com/PartyDAO/party-contracts-c4 && cd party-contracts-c4 && foundryup && forge install && yarn -D && yarn build && yarn test:gas && forge test -m testFork --fork-url $YOUR_RPC_URL
 ```
 
-Refer to the [code repo README](https://github.com/PartyDAO/party-contracts-c4) for individual steps.
+Refer to the [code repo README](https://github.com/PartyDAO/party-contracts-c4) for targeted, individual test commands you can run.
+
+Note that slither does not seem to be working with the repo as-is 🤷.
 
 ## Code Repo Layout
 

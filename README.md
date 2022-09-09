@@ -160,11 +160,11 @@ There are some proposals that can take multiple executions to complete (eg. `Lis
 
 ### Off-Chain Storage
 
-The [off-chain storage](https://github.com/Dragonfly-Capital/useful-solidity-patterns/tree/main/patterns/off-chain-storage) is used across almost all contracts to drastically reduce the gas costs involved in reading/writing storage. We verify the data coming off-chain is correct by checking it against an on-chain hash of the data we expect.
+The [off-chain storage](https://github.com/Dragonfly-Capital/useful-solidity-patterns/tree/main/patterns/off-chain-storage) pattern is used across almost all contracts to drastically reduce the gas costs involved in reading/writing storage. We verify the data coming off-chain is correct by checking it against an on-chain hash of the data we expect.
 
 ### Storage Buckets
 
-The [explicit storage buckets](https://github.com/Dragonfly-Capital/useful-solidity-patterns/tree/main/patterns/explicit-storage-buckets) is used in both the `PartyGovernance` and `ProposalExecutionEngine` implementation. Instead of relying on the compiler to assign/access these storage buckets, we manually define pointers that explicitly map to the storage slot of our choosing that does not overlap with any automatically assigned slot.
+The [explicit storage buckets](https://github.com/Dragonfly-Capital/useful-solidity-patterns/tree/main/patterns/explicit-storage-buckets) pattern is used in both the `PartyGovernance` and `ProposalExecutionEngine` implementation. Instead of relying on the compiler to assign/access these storage buckets, we manually define pointers that explicitly map to the storage slot of our choosing that does not overlap with any automatically assigned slot.
 
 ### Read-Only Delegate Calls
 

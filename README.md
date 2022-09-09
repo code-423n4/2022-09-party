@@ -1,6 +1,6 @@
 **NOTE:** The code for this contest is located [here](https://github.com/PartyDAO/party-contracts-c4).
 
-# Party Protocol Contest Details
+# Party DAO Contest Details
 
 - $71,250 USDC main award pot
 - $3,750 USDC gas optimization award pot

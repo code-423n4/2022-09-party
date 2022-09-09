@@ -1,4 +1,4 @@
-**NOTE:** The code for this contest is located [here](https://github.com/PartyDAO/party-contracts-c4).
+### 🚨🚨🚨🚨 The code and docs for this contest is located [[PartyDAO Protocol Repo]](https://github.com/PartyDAO/party-contracts-c4). 🚨🚨🚨🚨
 
 # Party DAO Contest Details
 
@@ -13,12 +13,57 @@
 ## Resources
 
 - [Code](https://github.com/PartyDAO/party-contracts-c4)
-- [Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs)
+- [Protocol Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs)
   - [Overview](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/overview.md)
   - [Crowdfund Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/crowdfund.md)
   - [Governance Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/governance.md)
 
-## Layout
+
+## Scoping Intake Details
+
+- Number of non-library contracts in scope: 46
+- Number of library dependencies: 1
+- Number of structs in scope: 34
+- Number of interfaces in scope: 15
+- Number of external calls: 4+
+    - Seaport 1.1, Zora V1, Fractional V1, PartyBid V1 MarketWrappers, user-supplied arbitrary calls, arbitrary ERC20s and ERC721s.
+- Codebase uses mostly inheritance.
+- Total in-scope SLOC: 3995
+- No oracles used.
+- No unique curve logic or math models.
+- It is not an AMM.
+- It is not a fork of a popular project.
+- It does not use rollups.
+- It does not implement an ERC20 token.
+- Some contracts are NFTs (ERC721).
+- It relies on time-based logic.
+- It is not multi-chain.
+- It does not use a side-chain.
+- Preferred communication timezone: EDT or PDT
+
+## All-in-one command
+
+Here's an example one-liner to immediately get started with the codebase. It will clone the project, build it, and run every test (with gas reports).
+
+```bash
+export YOUR_RPC_URL='<your_alchemy_mainnet_url_goes_here>' && rm -Rf party-contracts-c4 || true && git clone https://github.com/PartyDAO/party-contracts-c4 && cd party-contracts-c4 && foundryup && forge install && yarn -D && yarn build && yarn test:gas && forge test -m testFork --fork-url $YOUR_RPC_URL
+```
+
+Refer to the [code repo README](https://github.com/PartyDAO/party-contracts-c4) for targeted, individual test commands you can run.
+
+## Slither Issue
+
+Note that we were unable slither does not seem to be working with the repo as-is 🤷, resulting in an enum type not found error:
+
+```
+slither.solc_parsing.exceptions.ParsingError: Type not found enum Crowdfund.CrowdfundLifecycle
+```
+
+Seems to be related to https://github.com/crytic/slither/pull/1300, which will be included in the 0.8.4 release.
+
+There's mixed success with running slither against individual files.
+
+## Code Repo Layout
 
 ```
 docs/ # Start here
@@ -61,45 +106,140 @@ sol-tests/ # Foundry tests
 tests/ # TS tests
 ```
 
-![contract lifecycle](./contract-lifecycle.png)
 
 ## Contest Scope
 
-| Contract Name                                                                                                                                       | LoC | Libraries | External Calls                                                                                                                 | Tags                                                                                                                                                          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`crowdfund/AuctionCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/AuctionCrowdfund.sol)               | 200 |           | IERC721, [PartyBidV1 Market Wrappers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/market-wrapper)       | Proxy Impl, Delegatecall                                                                                                                                      |
-| [`crowdfund/BuyCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/BuyCrowdfund.sol)                       | 77  |           | IERC721                                                                                                                        | Proxy Impl                                                                                                                                                    |
-| [`crowdfund/BuyCrowdfundBase.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/BuyCrowdfundBase.sol)               | 132 |           | Arbitrary calls, ERC721                                                                                                        | Abstract, Arbitrary calls                                                                                                                                     |
-| [`crowdfund/CollectionBuyCrowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/CollectionBuyCrowdfund.sol)   | 94  |           | IERC721                                                                                                                        | Proxy Impl                                                                                                                                                    |
-| [`crowdfund/Crowdfund.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/Crowdfund.sol)                             | 369 |           | IERC721, Globals, PartyFactory                                                                                                 | Abstract, Accounting, Admin functions, Assembly, ETH balance, ETH transfer, Payable                                                                           |
-| [`crowdfund/CrowdfundFactory.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/CrowdfundFactory.sol)               | 104 |           | Arbitrary calls, [Gatekeepers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/gatekeepers), Globals, Proxy | Arbitrary calls, Proxy Factory                                                                                                                                |
-| [`crowdfund/CrowdfundNFT.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/crowdfund/CrowdfundNFT.sol)                       | 139 | solmate   | Globals, [Renderers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/renderers)                             | Soulbound ERC721                                                                                                                                              |
-| [`distribution/TokenDistributor.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/distribution/TokenDistributor.sol)         | 360 |           | IERC20, Party                                                                                                                  | Abstract, Accounting, Admin functions, Assembly, ERC20 balance, ETH balance, ERC20 transfer, ETH transfer, Honeypot, Singleton                                |
-| [`globals/Globals.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/globals/Globals.sol)                                     | 78  |           |                                                                                                                                | Configuration Registry, Admin-only                                                                                                                            |
-| [`party/Party.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/party/Party.sol)                                             | 39  |           |                                                                                                                                | Proxy Impl                                                                                                                                                    |
-| [`party/PartyFactory.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/party/PartyFactory.sol)                               | 47  |           | Proxy, Globals                                                                                                                 | Proxy Factory                                                                                                                                                 |
-| [`party/PartyGovernance.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/party/PartyGovernance.sol)                         | 853 |           | IERC20, TokenDistributor                                                                                                       | Abstract, Admin functions, Assembly, Delegatecall, ETH balance, Fallback, Governance, Payable, Roles, Snapshots                                               |
-| [`party/PartyGovernanceNFT.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/party/PartyGovernanceNFT.sol)                   | 150 | solmate   | Globals, [Renderers](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/renderers)                             | Abstract, ERC721, Minting                                                                                                                                     |
-| [`proposals/ArbitraryCallsProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ArbitraryCallsProposal.sol)   | 199 |           | Arbitrary calls, IERC721                                                                                                       | Abstract, Arbitrary calls, Assembly, Decoding, Delegatecall target, ETH transfer                                                                              |
-| [`proposals/FractionalizeProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/FractionalizeProposal.sol)     | 62  |           |                                                                                                                                | Abstract, Decoding, Delegatecall target, [Fractional V1 Vault Factory](https://etherscan.io/address/0x85Aa7f78BdB2DE8F3e0c0010d99AD5853fFcfC63#code), IERC721 |
-| [`proposals/LibProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/LibProposal.sol)                         | 38  |           |                                                                                                                                | Library                                                                                                                                                       |
-| [`proposals/ListOnOpenseaProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ListOnOpenseaProposal.sol)     | 298 |           | IERC721, [Seaport 1.1](https://etherscan.io/address/0x00000000006c3852cbEf3e08E8dF289169EdE581#code)                           | Abstract, Assembly, Decoding, Delegatecall target, Memory Hack, Multi-Step                                                                                    |
-| [`proposals/ListOnZoraProposal.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ListOnZoraProposal.sol)           | 163 |           | IERC721, [Zora Auction House V1](https://etherscan.io/address/0xE468cE99444174Bd3bBBEd09209577d25D1ad673#code)                 | Abstract, Decoding, Delegatecall target, Revert Handling, Multi-Step                                                                                          |
-| [`proposals/ProposalExecutionEngine.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ProposalExecutionEngine.sol) | 214 |           |                                                                                                                                | Assembly, Decoding, Delegatecall target, Stateful, Storage, Upgradable                                                                                        |
-| [`proposals/ProposalStorage.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/proposals/ProposalStorage.sol)                 | 55  |           |                                                                                                                                | Abstract, Assembly, Delegatecall, Delegatecall target, Storage                                                                                                |
-| [`tokens/ERC1155Receiver.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/tokens/ERC1155Receiver.sol)                       | 19  | solmate   |                                                                                                                                | Abstract, EIP165, ERC1155                                                                                                                                     |
-| [`tokens/ERC721Receiver.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/tokens/ERC721Receiver.sol)                         | 28  | solmate   |                                                                                                                                | Abstract, EIP165, ERC721                                                                                                                                      |
-| [`utils/EIP165.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/utils/EIP165.sol)                                           | 12  |           |                                                                                                                                | Abstract, EIP165                                                                                                                                              |
-| [`utils/Implementation.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/utils/Implementation.sol)                           | 26  |           |                                                                                                                                | Abstract, Assembly, EVM Hacks                                                                                                                                 |
-| [`utils/LibAddress.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/utils/LibAddress.sol)                                   | 14  |           |                                                                                                                                | Library, ETH Transfer                                                                                                                                         |
-| [`utils/LibERC20Compat.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/utils/LibERC20Compat.sol)                           | 29  |           | IERC20                                                                                                                         | Assembly, Decoding, ERC20, Library, Low-Level call                                                                                                            |
-| [`utils/LibRawResult.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/utils/LibRawResult.sol)                               | 17  |           |                                                                                                                                | Assembly, Library                                                                                                                                             |
-| [`utils/LibSafeCast.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/utils/LibSafeCast.sol)                                 | 64  |           |                                                                                                                                | Integer Casting, Library                                                                                                                                      |
-| [`utils/LibSafeERC721.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/utils/LibSafeERC721.sol)                             | 24  |           | IERC721                                                                                                                        | Decoding, ERC721, Library, Low-Level call                                                                                                                     |
-| [`utils/Proxy.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/utils/Proxy.sol)                                             | 31  |           | Proxy Impl                                                                                                                     | Assembly, Delegatecall, Fallback, Low-Level call, Proxy                                                                                                       |
-| [`utils/ReadOnlyDelegateCall.sol`](https://github.com/PartyDAO/party-contracts-c4/tree/main/contracts/utils/ReadOnlyDelegateCall.sol)               | 32  |           | Arbitrary calls                                                                                                                | Abstract, Delegatecall, Delegatecall target, Decoding, EVM Hack, Solidity Hack                                                                                |
+### Files in scope
+|File|[SLOC](#nowhere "(nSLOC, SLOC, Lines)")|[Coverage](#nowhere "(Lines hit / Total)")|
+|:-|:-:|:-:|
+|_Contracts (20)_|
+|[contracts/utils/EIP165.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/EIP165.sol)|[11](#nowhere "(nSLOC:6, SLOC:11, Lines:17)")|[0.00%](#nowhere "(Hit:0 / Total:1)")|
+|[contracts/tokens/ERC1155Receiver.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/tokens/ERC1155Receiver.sol)|[15](#nowhere "(nSLOC:9, SLOC:15, Lines:21)")|[0.00%](#nowhere "(Hit:0 / Total:1)")|
+|[contracts/tokens/ERC721Receiver.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/tokens/ERC721Receiver.sol)|[24](#nowhere "(nSLOC:13, SLOC:24, Lines:34)")|[50.00%](#nowhere "(Hit:1 / Total:2)")|
+|[contracts/utils/Proxy.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/Proxy.sol) [🖥](#nowhere "Uses Assembly") [💰](#nowhere "Payable Functions") [👥](#nowhere "DelegateCall")|[26](#nowhere "(nSLOC:26, SLOC:26, Lines:37)")|[100.00%](#nowhere "(Hit:2 / Total:2)")|
+|[contracts/utils/ReadOnlyDelegateCall.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/ReadOnlyDelegateCall.sol) [👥](#nowhere "DelegateCall") [♻️](#nowhere "TryCatch Blocks")|[27](#nowhere "(nSLOC:25, SLOC:27, Lines:40)")|[100.00%](#nowhere "(Hit:4 / Total:4)")|
+|[contracts/party/Party.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/party/Party.sol) [💰](#nowhere "Payable Functions")|[32](#nowhere "(nSLOC:29, SLOC:32, Lines:48)")|[100.00%](#nowhere "(Hit:1 / Total:1)")|
+|[contracts/party/PartyFactory.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/party/PartyFactory.sol) [🌀](#nowhere "create/create2")|[40](#nowhere "(nSLOC:32, SLOC:40, Lines:54)")|[80.00%](#nowhere "(Hit:4 / Total:5)")|
+|[contracts/proposals/ProposalStorage.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/ProposalStorage.sol) [🖥](#nowhere "Uses Assembly") [👥](#nowhere "DelegateCall") [🧮](#nowhere "Uses Hash-Functions")|[46](#nowhere "(nSLOC:36, SLOC:46, Lines:59)")|[80.00%](#nowhere "(Hit:8 / Total:10)")|
+|[contracts/proposals/FractionalizeProposal.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/FractionalizeProposal.sol)|[55](#nowhere "(nSLOC:50, SLOC:55, Lines:80)")|[100.00%](#nowhere "(Hit:10 / Total:10)")|
+|[contracts/globals/Globals.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/globals/Globals.sol)|[59](#nowhere "(nSLOC:59, SLOC:59, Lines:82)")|[35.71%](#nowhere "(Hit:5 / Total:14)")|
+|[contracts/crowdfund/BuyCrowdfund.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/crowdfund/BuyCrowdfund.sol) [💰](#nowhere "Payable Functions")|[69](#nowhere "(nSLOC:57, SLOC:69, Lines:116)")|[100.00%](#nowhere "(Hit:4 / Total:4)")|
+|[contracts/crowdfund/CollectionBuyCrowdfund.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/crowdfund/CollectionBuyCrowdfund.sol) [💰](#nowhere "Payable Functions")|[82](#nowhere "(nSLOC:68, SLOC:82, Lines:133)")|[100.00%](#nowhere "(Hit:3 / Total:3)")|
+|[contracts/crowdfund/CrowdfundFactory.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/crowdfund/CrowdfundFactory.sol) [💰](#nowhere "Payable Functions")|[94](#nowhere "(nSLOC:66, SLOC:94, Lines:131)")|[93.33%](#nowhere "(Hit:14 / Total:15)")|
+|[contracts/crowdfund/CrowdfundNFT.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/crowdfund/CrowdfundNFT.sol)|[115](#nowhere "(nSLOC:82, SLOC:115, Lines:169)")|[44.00%](#nowhere "(Hit:11 / Total:25)")|
+|[contracts/party/PartyGovernanceNFT.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/party/PartyGovernanceNFT.sol)|[129](#nowhere "(nSLOC:86, SLOC:129, Lines:181)")|[57.69%](#nowhere "(Hit:15 / Total:26)")|
+|[contracts/proposals/ListOnZoraProposal.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/ListOnZoraProposal.sol) [🧮](#nowhere "Uses Hash-Functions") [♻️](#nowhere "TryCatch Blocks")|[151](#nowhere "(nSLOC:127, SLOC:151, Lines:205)")|[100.00%](#nowhere "(Hit:25 / Total:25)")|
+|[contracts/crowdfund/AuctionCrowdfund.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/crowdfund/AuctionCrowdfund.sol) [💰](#nowhere "Payable Functions") [👥](#nowhere "DelegateCall")|[181](#nowhere "(nSLOC:168, SLOC:181, Lines:283)")|[87.50%](#nowhere "(Hit:49 / Total:56)")|
+|[contracts/proposals/ArbitraryCallsProposal.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/ArbitraryCallsProposal.sol) [🖥](#nowhere "Uses Assembly") [🧮](#nowhere "Uses Hash-Functions")|[186](#nowhere "(nSLOC:151, SLOC:186, Lines:238)")|[96.36%](#nowhere "(Hit:53 / Total:55)")|
+|[contracts/proposals/ProposalExecutionEngine.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/ProposalExecutionEngine.sol) [🖥](#nowhere "Uses Assembly") [🧮](#nowhere "Uses Hash-Functions")|[192](#nowhere "(nSLOC:167, SLOC:192, Lines:275)")|[86.44%](#nowhere "(Hit:51 / Total:59)")|
+|[contracts/distribution/TokenDistributor.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/distribution/TokenDistributor.sol) [🖥](#nowhere "Uses Assembly") [💰](#nowhere "Payable Functions")|[326](#nowhere "(nSLOC:240, SLOC:326, Lines:414)")|[90.48%](#nowhere "(Hit:57 / Total:63)")|
+|_Abstracts (5)_|
+|[contracts/utils/Implementation.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/Implementation.sol) [🖥](#nowhere "Uses Assembly")|[21](#nowhere "(nSLOC:21, SLOC:21, Lines:30)")|-|
+|[contracts/crowdfund/BuyCrowdfundBase.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/crowdfund/BuyCrowdfundBase.sol)|[120](#nowhere "(nSLOC:102, SLOC:120, Lines:174)")|[79.31%](#nowhere "(Hit:23 / Total:29)")|
+|[contracts/proposals/ListOnOpenseaProposal.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/ListOnOpenseaProposal.sol) [🖥](#nowhere "Uses Assembly")|[282](#nowhere "(nSLOC:255, SLOC:282, Lines:374)")|[97.75%](#nowhere "(Hit:87 / Total:89)")|
+|[contracts/crowdfund/Crowdfund.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/crowdfund/Crowdfund.sol) [🖥](#nowhere "Uses Assembly") [💰](#nowhere "Payable Functions")|[339](#nowhere "(nSLOC:282, SLOC:339, Lines:494)")|[77.36%](#nowhere "(Hit:82 / Total:106)")|
+|[contracts/party/PartyGovernance.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/party/PartyGovernance.sol) [🖥](#nowhere "Uses Assembly") [💰](#nowhere "Payable Functions") [👥](#nowhere "DelegateCall") [🧮](#nowhere "Uses Hash-Functions")|[783](#nowhere "(nSLOC:626, SLOC:783, Lines:1137)")|[71.43%](#nowhere "(Hit:150 / Total:210)")|
+|_Libraries (6)_|
+|[contracts/utils/LibAddress.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/LibAddress.sol)|[12](#nowhere "(nSLOC:10, SLOC:12, Lines:16)")|[0.00%](#nowhere "(Hit:0 / Total:3)")|
+|[contracts/utils/LibRawResult.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/LibRawResult.sol) [🖥](#nowhere "Uses Assembly")|[15](#nowhere "(nSLOC:9, SLOC:15, Lines:20)")|-|
+|[contracts/utils/LibSafeERC721.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/LibSafeERC721.sol)|[19](#nowhere "(nSLOC:15, SLOC:19, Lines:31)")|[0.00%](#nowhere "(Hit:0 / Total:4)")|
+|[contracts/utils/LibERC20Compat.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/LibERC20Compat.sol) [🖥](#nowhere "Uses Assembly")|[26](#nowhere "(nSLOC:24, SLOC:26, Lines:32)")|[0.00%](#nowhere "(Hit:0 / Total:12)")|
+|[contracts/proposals/LibProposal.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/LibProposal.sol)|[34](#nowhere "(nSLOC:21, SLOC:34, Lines:39)")|[0.00%](#nowhere "(Hit:0 / Total:8)")|
+|[contracts/utils/LibSafeCast.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/LibSafeCast.sol)|[56](#nowhere "(nSLOC:48, SLOC:56, Lines:65)")|[0.00%](#nowhere "(Hit:0 / Total:19)")|
+|_Interfaces (15)_|
+|[contracts/distribution/ITokenDistributorParty.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/distribution/ITokenDistributorParty.sol)|[5](#nowhere "(nSLOC:5, SLOC:5, Lines:15)")|-|
+|[contracts/proposals/vendor/IOpenseaConduitController.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/vendor/IOpenseaConduitController.sol)|[5](#nowhere "(nSLOC:5, SLOC:5, Lines:7)")|-|
+|[contracts/gatekeepers/IGateKeeper.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/gatekeepers/IGateKeeper.sol)|[8](#nowhere "(nSLOC:4, SLOC:8, Lines:16)")|-|
+|[contracts/tokens/IERC721Receiver.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/tokens/IERC721Receiver.sol)|[9](#nowhere "(nSLOC:4, SLOC:9, Lines:12)")|-|
+|[contracts/tokens/IERC20.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/tokens/IERC20.sol)|[10](#nowhere "(nSLOC:10, SLOC:10, Lines:14)")|-|
+|[contracts/market-wrapper/IMarketWrapper.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/market-wrapper/IMarketWrapper.sol)|[16](#nowhere "(nSLOC:9, SLOC:16, Lines:89)")|-|
+|[contracts/party/IPartyFactory.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/party/IPartyFactory.sol)|[16](#nowhere "(nSLOC:9, SLOC:16, Lines:37)")|-|
+|[contracts/globals/IGlobals.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/globals/IGlobals.sol)|[17](#nowhere "(nSLOC:17, SLOC:17, Lines:23)")|-|
+|[contracts/proposals/IProposalExecutionEngine.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/IProposalExecutionEngine.sol)|[17](#nowhere "(nSLOC:16, SLOC:17, Lines:38)")|-|
+|[contracts/tokens/IERC721.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/tokens/IERC721.sol)|[17](#nowhere "(nSLOC:17, SLOC:17, Lines:21)")|-|
+|[contracts/proposals/vendor/FractionalV1.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/vendor/FractionalV1.sol)|[23](#nowhere "(nSLOC:13, SLOC:23, Lines:32)")|-|
+|[contracts/vendor/markets/IZoraAuctionHouse.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/vendor/markets/IZoraAuctionHouse.sol) [💰](#nowhere "Payable Functions")|[34](#nowhere "(nSLOC:26, SLOC:34, Lines:53)")|-|
+|[contracts/tokens/IERC1155.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/tokens/IERC1155.sol)|[39](#nowhere "(nSLOC:24, SLOC:39, Lines:43)")|-|
+|[contracts/distribution/ITokenDistributor.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/distribution/ITokenDistributor.sol) [💰](#nowhere "Payable Functions")|[89](#nowhere "(nSLOC:47, SLOC:89, Lines:169)")|-|
+|[contracts/proposals/vendor/IOpenseaExchange.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/vendor/IOpenseaExchange.sol) [💰](#nowhere "Payable Functions")|[123](#nowhere "(nSLOC:120, SLOC:123, Lines:137)")|-|
+|Total (over 46 files):| [3995](#nowhere "(nSLOC:3236, SLOC:3995, Lines:5735)")| [76.54%](#nowhere "Hit:659 / Total:861")|
 
-## Inheritance Graph
+### All other source contracts (not in scope)
+|File|[SLOC](#nowhere "(nSLOC, SLOC, Lines)")|[Coverage](#nowhere "(Lines hit / Total)")|
+|:-|:-:|:-:|
+|_Contracts (9)_|
+|[contracts/gatekeepers/AllowListGateKeeper.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/gatekeepers/AllowListGateKeeper.sol) [🖥](#nowhere "Uses Assembly")|[25](#nowhere "(nSLOC:21, SLOC:25, Lines:37)")|[100.00%](#nowhere "(Hit:7 / Total:7)")|
+|[contracts/gatekeepers/TokenGateKeeper.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/gatekeepers/TokenGateKeeper.sol)|[32](#nowhere "(nSLOC:25, SLOC:32, Lines:54)")|[100.00%](#nowhere "(Hit:7 / Total:7)")|
+|[contracts/market-wrapper/FoundationMarketWrapper.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/market-wrapper/FoundationMarketWrapper.sol)|[56](#nowhere "(nSLOC:37, SLOC:56, Lines:121)")|[0.00%](#nowhere "(Hit:0 / Total:10)")|
+|[contracts/market-wrapper/ZoraMarketWrapper.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/market-wrapper/ZoraMarketWrapper.sol)|[74](#nowhere "(nSLOC:54, SLOC:74, Lines:140)")|[0.00%](#nowhere "(Hit:0 / Total:14)")|
+|[contracts/market-wrapper/NounsMarketWrapper.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/market-wrapper/NounsMarketWrapper.sol)|[76](#nowhere "(nSLOC:55, SLOC:76, Lines:138)")|[0.00%](#nowhere "(Hit:0 / Total:21)")|
+|[contracts/market-wrapper/KoansMarketWrapper.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/market-wrapper/KoansMarketWrapper.sol)|[77](#nowhere "(nSLOC:56, SLOC:77, Lines:140)")|[0.00%](#nowhere "(Hit:0 / Total:21)")|
+|[contracts/utils/PartyHelpers.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/PartyHelpers.sol)|[97](#nowhere "(nSLOC:76, SLOC:97, Lines:126)")|[96.55%](#nowhere "(Hit:28 / Total:29)")|
+|[contracts/renderers/CrowdfundNFTRenderer.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/renderers/CrowdfundNFTRenderer.sol)|[137](#nowhere "(nSLOC:137, SLOC:137, Lines:177)")|[65.38%](#nowhere "(Hit:34 / Total:52)")|
+|[contracts/renderers/PartyGovernanceNFTRenderer.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/renderers/PartyGovernanceNFTRenderer.sol)|[143](#nowhere "(nSLOC:139, SLOC:143, Lines:186)")|[100.00%](#nowhere "(Hit:34 / Total:34)")|
+|_Abstracts (4)_|
+|[contracts/proposals/ZoraHelpers.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/proposals/ZoraHelpers.sol)|[27](#nowhere "(nSLOC:10, SLOC:27, Lines:42)")|-|
+|[contracts/vendor/solmate/ERC20.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/vendor/solmate/ERC20.sol) [🧮](#nowhere "Uses Hash-Functions") [🔖](#nowhere "Handles Signatures: ecrecover") [Σ](#nowhere "Unchecked Blocks")|[119](#nowhere "(nSLOC:107, SLOC:119, Lines:205)")|[26.92%](#nowhere "(Hit:7 / Total:26)")|
+|[contracts/vendor/solmate/ERC721.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/vendor/solmate/ERC721.sol) [Σ](#nowhere "Unchecked Blocks")|[135](#nowhere "(nSLOC:113, SLOC:135, Lines:230)")|[15.79%](#nowhere "(Hit:6 / Total:38)")|
+|[contracts/vendor/solmate/ERC1155.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/vendor/solmate/ERC1155.sol) [Σ](#nowhere "Unchecked Blocks")|[162](#nowhere "(nSLOC:115, SLOC:162, Lines:244)")|[18.18%](#nowhere "(Hit:8 / Total:44)")|
+|_Libraries (3)_|
+|[contracts/globals/LibGlobals.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/globals/LibGlobals.sol)|[25](#nowhere "(nSLOC:25, SLOC:25, Lines:28)")|-|
+|[contracts/utils/vendor/Base64.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/vendor/Base64.sol) [🖥](#nowhere "Uses Assembly")|[41](#nowhere "(nSLOC:41, SLOC:41, Lines:63)")|[100.00%](#nowhere "(Hit:6 / Total:6)")|
+|[contracts/utils/vendor/Strings.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/utils/vendor/Strings.sol)|[49](#nowhere "(nSLOC:49, SLOC:49, Lines:71)")|[0.00%](#nowhere "(Hit:0 / Total:30)")|
+|_Interfaces (4)_|
+|[contracts/renderers/IERC721Renderer.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/renderers/IERC721Renderer.sol)|[5](#nowhere "(nSLOC:5, SLOC:5, Lines:7)")|-|
+|[contracts/vendor/markets/IFoundationMarket.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/vendor/markets/IFoundationMarket.sol) [💰](#nowhere "Payable Functions")|[29](#nowhere "(nSLOC:19, SLOC:29, Lines:37)")|-|
+|[contracts/vendor/markets/INounsAuctionHouse.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/vendor/markets/INounsAuctionHouse.sol) [💰](#nowhere "Payable Functions")|[32](#nowhere "(nSLOC:32, SLOC:32, Lines:77)")|-|
+|[contracts/vendor/markets/IKoansAuctionHouse.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/vendor/markets/IKoansAuctionHouse.sol) [💰](#nowhere "Payable Functions")|[37](#nowhere "(nSLOC:37, SLOC:37, Lines:71)")|-|
+|Total (over 20 files):| [1378](#nowhere "(nSLOC:1153, SLOC:1378, Lines:2194)")| [40.41%](#nowhere "Hit:137 / Total:339")|
+
+## External imports
+* **openzeppelin/contracts/interfaces/IERC2981.sol**
+  * [contracts/party/PartyGovernanceNFT.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/party/PartyGovernanceNFT.sol)
+* **openzeppelin/contracts/utils/cryptography/MerkleProof.sol**
+  * ~~[contracts/gatekeepers/AllowListGateKeeper.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/gatekeepers/AllowListGateKeeper.sol)~~
+
+## Contracts For Further Context
+Additional out-of-scope contracts that are either consumed by or referenced by the in-scope business logic:
+
+- [Gatekeepers](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/gatekeepers): Contracts that crowdfunds can optionally use to enforce who can participate in a crowdfund.
+- [MarketWrappers](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/market-wraper): Wrappers to various NFT auction markets to provide a unified interface for the `AuctionCrowdfund`. Inherited from V1 of the protocol.
+- [PartyBidV1](https://github.com/PartyDAO/partybid): Prior iteration of the protocol. Only featured the crowdfunds phase. Historical and motivational context.
+
+## Lifecycle and Diagrams
+
+At a high level, the typical business flow of the key contracts in this protocol goes like:
+
+1. Someone starts a crowdfund (`AuctionCrowdfund`, `BuyCrowdfund`, or `CollectionBuyCrowdfund`) to acquire an NFT (could be a specific one or any from a collection) and form a party around it.
+    1. At creation time they also choose the (fixed) parameters for the governance phase, should they succeed.
+    2. At creation time they also choose initial "party hosts" for the crowdfund, which have special powers that carry over to the governance phase.
+2. While the crowdfund is active (not expired or finalized), people can contribute ETH to the crowdfund.
+    1. This mints each contributor a soulbound "participation NFT" as well.
+    2. Contributors may also preemptively choose whom to delegate their voting power to if the party goes on to the governance phase.
+3. At any time while the crowdfund is active, someone can take an action on the crowdfund (depends on the crowdfund type) to attempt to purchase an NFT.
+    1. This could be placing a bid on an auction market or executing arbitrary call data to outright buy a fixed price listing (e.g., on opensea).
+4. If the crowdfund fails to acquire an NFT before it expires, Anyone can burn a contributor's participation NFT to return their contributed ETH. That is the end of the lifecycle for that party. Stop here.
+5. If the crowdfund can successfully acquire the NFT before it expires, it transitions into governance phase.
+6. A "governance party" (`Party`) is deployed.
+    1. The fixed governance parameters chosen when the crowdfund was created are used to initialize the party.
+    2. The bought NFT is transferred into this party.
+7. Anyone can burn a contributor's participation NFT to:
+    1. Refund any of the contributor's ETH that was not used to purchase the NFT.
+    2. Mint voting power for the contributor in the governance party equal to the amount of their ETH that was used.
+        1. This voting power is tokenized as a transferrable NFT ("governance NFT").
+        2. If an initial delegate was chosen (other then themselves), the voting power will also be delegated at this time.
+8. The governance party now has the purchased NFT (called "precious") and users with effective voting power can make, vote, and execute proposals through governance.
+    1. Party hosts (inherited from the crowdfund phase) can unilaterally veto any proposal made.
+    2. Snapshots of voting power are taken whenever a user's voting power or delegation is updated to make sure only voting power at the time a proposal is made is used in voting.
+9. When a proposal passes and is executed, the governance party will delegatecall into the `ProposalExecutionEngine` logic contract which decodes and executes the proposal.
+    1. Some proposal types are non-atomic, multi-step, requiring repeated executions. No other proposal may be executed while another proposal is incomplete.
+10. If any ETH or ERC20s accrue in the party, anyone with effective voting power can trigger a "distribution".
+    1. This moves all of the chosen asset (ETH or ERC20) into the canonical `TokenDistributor` contract and creates a distribution within it.
+    2. Anyone with a governance NFT in that party can redeem their share of the asset distribution.
+        1. Distribution share for a governance NFT is generally equal to its individual voting power over the total voting power of the party.
+
+![contract lifecycle](https://github.com/code-423n4/2022-09-party/blob/main/contract-lifecycle.png)
+
 
 Here's an abbreviated inheritance graph of the major contracts in the protocol (leaf nodes are deployable):
 
@@ -127,6 +267,8 @@ FractionalizeProposal────┤
                          │
 ArbitraryCallsProposal───┘
 ```
+
+**For deeper details, visit the [Protocol Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs).**
 
 ## Areas of Concern / Unique Approaches
 

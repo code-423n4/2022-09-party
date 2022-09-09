@@ -51,7 +51,15 @@ export YOUR_RPC_URL='<your_alchemy_mainnet_url_goes_here>' && rm -Rf party-contr
 
 Refer to the [code repo README](https://github.com/PartyDAO/party-contracts-c4) for targeted, individual test commands you can run.
 
-Note that slither does not seem to be working with the repo as-is 🤷.
+## Slither Issue
+
+Note that we were unable slither does not seem to be working with the repo as-is 🤷, resulting in an enum type not found error:
+
+```
+slither.solc_parsing.exceptions.ParsingError: Type not found enum Crowdfund.CrowdfundLifecycle
+```
+
+Seems to be related to https://github.com/crytic/slither/pull/1300, which will be included in the 0.8.4 release.
 
 ## Code Repo Layout
 

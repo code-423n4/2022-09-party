@@ -1,4 +1,4 @@
-🚨🚨🚨🚨 The code and docs for this contest is located [here](https://github.com/PartyDAO/party-contracts-c4). 🚨🚨🚨🚨
+### 🚨🚨🚨🚨 The code and docs for this contest is located [[PartyDAO Protocol Repo]](https://github.com/PartyDAO/party-contracts-c4). 🚨🚨🚨🚨
 
 # Party DAO Contest Details
 
@@ -40,12 +40,15 @@
 - It does not use a side-chain.
 - Preferred communication timezone: EDT or PDT
 
-## Contracts For Further Context
-Additional out-of-scope contracts that are either consumed by or referenced by the in-scope business logic:
+## All-in-one command
 
-- [Gatekeepers](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/gatekeepers): Contracts that crowdfunds can optionally use to enforce who can participate in a crowdfund.
-- [MarketWrappers](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/market-wraper): Wrappers to various NFT auction markets to provide a unified interface for the `AuctionCrowdfund`. Inherited from V1 of the protocol.
-- [PartyBidV1](https://github.com/PartyDAO/partybid): Prior iteration of the protocol. Only featured the crowdfunds phase. Historical and motivational context.
+Here's an example one-liner to immediately get started with the codebase. It will clone the project, build it, and run every test (with gas reports).
+
+```bash
+export YOUR_RPC_URL='<your_alchemy_mainnet_url_goes_here>' && rm -Rf party-contracts-c4 || true && git clone https://github.com/PartyDAO/party-contracts-c4 && cd party-contracts-c4 && foundryup && forge install && yarn -D && yarn build && yarn test:gas && forge test -m testFork --fork-url $YOUR_RPC_URL
+```
+
+Refer to the [code repo README](https://github.com/PartyDAO/party-contracts-c4) for individual steps.
 
 ## Code Repo Layout
 
@@ -182,6 +185,13 @@ tests/ # TS tests
   * [contracts/party/PartyGovernanceNFT.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/party/PartyGovernanceNFT.sol)
 * **openzeppelin/contracts/utils/cryptography/MerkleProof.sol**
   * ~~[contracts/gatekeepers/AllowListGateKeeper.sol](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/gatekeepers/AllowListGateKeeper.sol)~~
+
+## Contracts For Further Context
+Additional out-of-scope contracts that are either consumed by or referenced by the in-scope business logic:
+
+- [Gatekeepers](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/gatekeepers): Contracts that crowdfunds can optionally use to enforce who can participate in a crowdfund.
+- [MarketWrappers](https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/market-wraper): Wrappers to various NFT auction markets to provide a unified interface for the `AuctionCrowdfund`. Inherited from V1 of the protocol.
+- [PartyBidV1](https://github.com/PartyDAO/partybid): Prior iteration of the protocol. Only featured the crowdfunds phase. Historical and motivational context.
 
 ## Lifecycle and Diagrams
 

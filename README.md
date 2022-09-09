@@ -5,7 +5,7 @@
 - $71,250 USDC main award pot
 - $3,750 USDC gas optimization award pot
 - Join [C4 Discord](https://discord.gg/code4rena) to register
-- Submit findings [using the C4 form](https://code4rena.com/contests/2022-09-party-contest/submit)
+- Submit findings [using the C4 form](https://code4rena.com/contests/2022-09-party-dao-contest/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts September 12, 2022 20:00 UTC
 - Ends September 19, 2022 20:00 UTC

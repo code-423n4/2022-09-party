@@ -21,11 +21,12 @@
 
 ## Scoping Intake Details
 
-- Number of non-library contracts in scope: 10?
-- Number of library dependencies: 7?
+- Number of non-library contracts in scope: 46
+- Number of library dependencies: 1
 - Number of structs in scope: 34
 - Number of interfaces in scope: 15
-- Number of external calls: ?
+- Number of external calls: 4+
+    - Seaport 1.1, Zora V1, Fractional V1, PartyBid V1 MarketWrappers, user-supplied arbitrary calls, arbitrary ERC20s and ERC721s.
 - Codebase uses mostly inheritance.
 - Total in-scope SLOC: 3995
 - No oracles used.

@@ -8,7 +8,7 @@
 - Starts September 12, 2022 20:00 UTC
 - Ends September 19, 2022 20:00 UTC
 
-### 🚨🚨🚨🚨 The code and docs for this contest is located [[PartyDAO Protocol Repo]](https://github.com/PartyDAO/party-contracts-c4). 🚨🚨🚨🚨
+### 🚨🚨🚨🚨 The code and docs for this contest are located in a separate [[PartyDAO Protocol Repo]](https://github.com/PartyDAO/party-contracts-c4). 🚨🚨🚨🚨
 
 ## Resources
 
@@ -46,7 +46,7 @@
 Here's an example one-liner to immediately get started with the codebase. It will clone the project, build it, and run every test (with gas reports).
 
 ```bash
-export YOUR_RPC_URL='<your_alchemy_mainnet_url_goes_here>' && rm -Rf party-contracts-c4 || true && git clone https://github.com/PartyDAO/party-contracts-c4 && cd party-contracts-c4 && foundryup && forge install && yarn -D && yarn build && yarn test:gas && forge test -m testFork --fork-url $YOUR_RPC_URL --gas-report
+export FORK_URL='<your_alchemy_mainnet_url_goes_here>' && rm -Rf party-contracts-c4 || true && git clone https://github.com/PartyDAO/party-contracts-c4 && cd party-contracts-c4 && nvm install 16.0 && foundryup && forge install && yarn -D && yarn build && yarn test:gas && forge test -m testFork --fork-url $FORK_URL --gas-report
 ```
 
 Refer to the [code repo README](https://github.com/PartyDAO/party-contracts-c4) for targeted, individual test commands you can run.

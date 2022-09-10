@@ -43,10 +43,10 @@
 
 ## All-in-one command
 
-Here's an example one-liner to immediately get started with the codebase. It will clone the project, build it, and run every test (with gas reports).
+Here's an example one-liner to immediately get started with the codebase. It will clone the project, build it, run every test, and display gas reports (except that the TS tests do not have a gas report since they only use waffle).
 
 ```bash
-export FORK_URL='<your_alchemy_mainnet_url_goes_here>' && rm -Rf party-contracts-c4 || true && git clone https://github.com/PartyDAO/party-contracts-c4 && cd party-contracts-c4 && nvm install 16.0 && foundryup && forge install && yarn -D && yarn build && yarn test:gas && forge test -m testFork --fork-url $FORK_URL --gas-report
+export FORK_URL='<your_alchemy_mainnet_url_goes_here>' && rm -Rf party-contracts-c4 || true && git clone https://github.com/PartyDAO/party-contracts-c4 && cd party-contracts-c4 && nvm install 16.0 && foundryup && forge install && yarn -D && yarn build:sol && yarn test:ts && yarn test:gas && forge test -m testFork --fork-url $FORK_URL --gas-report
 ```
 
 Refer to the [code repo README](https://github.com/PartyDAO/party-contracts-c4) for targeted, individual test commands you can run.

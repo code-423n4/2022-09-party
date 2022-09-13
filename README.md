@@ -238,7 +238,7 @@ At a high level, the typical business flow of the key contracts in this protocol
     2. Anyone with a governance NFT in that party can redeem their share of the asset distribution.
         1. Distribution share for a governance NFT is generally equal to its individual voting power over the total voting power of the party.
 
-![image](https://github.com/code-423n4/2022-09-party/blob/main/contract-lifecycle.png)
+![contract-lifecycle]( https://github.com/code-423n4/2022-09-party/raw/main/contract-lifecycle.png)
 
 
 Here's an abbreviated inheritance graph of the major contracts in the protocol (leaf nodes are deployable):

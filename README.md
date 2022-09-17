@@ -20,7 +20,7 @@
 
 ## High-level Video Overview of the Protocol
 
-https://www.loom.com/share/8a6a671186b64d479caf634a4f92a3fc
+- https://www.loom.com/share/8a6a671186b64d479caf634a4f92a3fc
 
 ## Scoping Intake Details
 

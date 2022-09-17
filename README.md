@@ -18,7 +18,7 @@
   - [Crowdfund Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/crowdfund.md)
   - [Governance Contracts Documentation](https://github.com/PartyDAO/party-contracts-c4/tree/main/docs/governance.md)
 
-## High-level overview of the protocol
+## High-level Video Overview of the Protocol
 
 https://www.loom.com/share/8a6a671186b64d479caf634a4f92a3fc
 

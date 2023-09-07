@@ -1,0 +1,667 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q3-2022 / party-sept12
+==============================================================
+
+[09/09/2022 3:42 PM] kartoonjoy (pinned)
+👋 Hello and welcome to the contest channel for the $75K USDC **Party DAO** contest!
+
+📆 Contest opens 09/12/2022 8:00 PM (20:00 UTC) and runs through 09/19/2022 8:00 PM (20:00 UTC) (7 days).
+
+Please give a warm welcome to the Party DAO team, particularly @jpalmz, @lawrence-forman, @0xble, @steveklebanoff, @marcus, @samedayjeremy and @justinw who will be available for questions either here in the channel or via DM.
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, consider enabling notifications for this channel. 🐺 ⏰
+
+Contest Page: https://code4rena.com/contests/2022-09-party-dao-contest
+
+{Embed}
+https://code4rena.com/contests/2022-09-party-dao-contest
+Code4rena Party DAO contest
+$75,000 USDC
+12 September 2022—19 September 2022
+Code4rena - ARCHIVE-Q3-2022 - party-sept12 [1017819538001236080].txt_Files/ec89c88d-080d-4180-8b09-b715f4801d59-02A2B
+
+{Reactions}
+kazoo (3) 4739_Skeletor 
+
+[09/09/2022 3:42 PM] kartoonjoy
+Pinned a message.
+
+
+[09/09/2022 3:43 PM] codingnamekiki
+https://tenor.com/view/minions-its-time-to-party-despicable-me2-party-celebrate-gif-26156442
+
+{Embed}
+https://tenor.com/view/minions-its-time-to-party-despicable-me2-party-celebrate-gif-26156442
+Code4rena - ARCHIVE-Q3-2022 - party-sept12 [1017819538001236080].txt_Files/minions-its-time-to-party-1A0CA.png
+
+{Reactions}
+🥳 (13) 
+
+[09/09/2022 4:40 PM] merklejerk
+👋 👋
+
+{Reactions}
+👋 (7) 
+
+[09/09/2022 7:24 PM] pedr02b2
+👋 👋
+
+
+[09/09/2022 11:28 PM] CRYP70#8985
+Wohooo 🎉👋
+
+
+[09/10/2022 8:13 PM] ladboy233
+time to party!
+
+
+[09/12/2022 3:24 AM] 0x4non
+Let's party!
+
+{Reactions}
+😂 
+
+[09/12/2022 7:56 PM] .tointer
+Party time
+
+{Reactions}
+🎉 (3) 
+
+[09/12/2022 8:08 PM] christian_kuri
+Lets get this party started!
+
+
+[09/12/2022 8:10 PM] merklejerk
+Let's gooooooo! @0xble and I are the protocol devs for this project and will be on-hand to answer any questions. Good luck!
+
+{Reactions}
+PES2_Party (4) 
+
+[09/12/2022 8:42 PM] indijanc7
+So ts tests are more "high level" and testing integration with Seaport, while foundry test are more "low level" contract (unit) testing?
+
+
+[09/12/2022 9:30 PM] merklejerk
+yeah, for the most part, but we also have some integration style tests written in foundry
+
+
+[09/12/2022 9:31 PM] merklejerk
+we kind of pivoted mid-process so there's a mix between them
+
+{Reactions}
+👍 
+
+[09/14/2022 12:46 AM] ladboy233
+Just read the area of concerns section.
+
+
+[09/14/2022 12:46 AM] ladboy233
+this is crazy lmao.
+
+
+[09/14/2022 1:54 AM] merklejerk
+like crazy because they're scary?
+
+
+[09/14/2022 6:18 AM] trust90
+It seems like they have thought of everything 👀
+
+
+[09/14/2022 6:30 AM] codingnamekiki
+Not everything
+
+
+[09/14/2022 6:30 AM] codingnamekiki
+:4739_Skeletor:
+
+{Reactions}
+4739_Skeletor (10) 👀 (6) 💰 (5) 
+
+[09/14/2022 2:45 PM] ladboy233
+i++
+
+
+[09/14/2022 2:45 PM] ladboy233
+i++
+
+
+[09/14/2022 2:45 PM] ladboy233
+I found i++
+
+{Reactions}
+💰 (8) 
+
+[09/14/2022 2:48 PM] ladboy233
+:4739_Skeletor:
+
+
+[09/14/2022 2:48 PM] ladboy233
+:C4Keycap:
+
+
+[09/14/2022 2:48 PM] ladboy233
+✅
+
+
+[09/14/2022 3:13 PM] elku.cryptos
+this i++ joke got so old that its not really funny anymore. lets not spam the contest channels with these anymore and keep it for helpful discussions.
+
+{Reactions}
+💯 (15) 👍 (5) 👆 (5) Deadass (3) xqcGoofy (2) 
+
+[09/14/2022 3:33 PM] trust90
+It's mind boggling how the devs consciously risk themselves to criticals by avoiding explicit reentrency guards to save a couple of warm SLOAD/SSTOREs. Says something about how confident they are with solidity
+
+
+[09/14/2022 4:03 PM] merklejerk
+Yup, that's why they were explicitly called out in the README. Excellent places to start looking for vulns.
+
+{Reactions}
+💪 (9) 
+
+[09/14/2022 10:55 PM] ladboy233
+Wow.
+
+
+[09/14/2022 10:55 PM] ladboy233
+the proposal part is complicated.
+
+
+[09/14/2022 10:55 PM] ladboy233
+the listOnOpensea, listOnZora, and list on Fractionalize especially.
+
+
+[09/14/2022 10:56 PM] ladboy233
+Is there any good resources to learn about the Zora, open sea, and fractionalize smart contract?
+
+
+[09/14/2022 10:56 PM] ladboy233
+🙇‍♂️
+
+
+[09/14/2022 11:04 PM] merklejerk
+For seaport: https://github.com/ProjectOpenSea/seaport/blob/main/docs/SeaportDocumentation.md
+
+{Embed}
+https://github.com/ProjectOpenSea/seaport/blob/main/docs/SeaportDocumentation.md
+seaport/SeaportDocumentation.md at main · ProjectOpenSea/seaport
+Seaport is a marketplace protocol for safely and efficiently buying and selling NFTs. - seaport/SeaportDocumentation.md at main · ProjectOpenSea/seaport
+Code4rena - ARCHIVE-Q3-2022 - party-sept12 [1017819538001236080].txt_Files/seaport-79E0F
+
+
+[09/14/2022 11:08 PM] merklejerk
+Zora: https://github.com/ourzora/auction-house
+
+{Embed}
+https://github.com/ourzora/auction-house
+GitHub - ourzora/auction-house
+Contribute to ourzora/auction-house development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q3-2022 - party-sept12 [1017819538001236080].txt_Files/auction-house-39812
+
+{Reactions}
+🔥 
+
+[09/14/2022 11:09 PM] merklejerk
+Fractional v1 https://github.com/fractional-company/contracts#deployments
+
+{Embed}
+https://github.com/fractional-company/contracts
+GitHub - fractional-company/contracts: contracts
+contracts. Contribute to fractional-company/contracts development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q3-2022 - party-sept12 [1017819538001236080].txt_Files/contracts-64854
+
+
+[09/14/2022 11:17 PM] ladboy233
+ok thanks
+
+
+[09/16/2022 3:26 AM] 100proof
+And there's a ready-made channel called #🌀awesome-nonsense where you are _encouraged_ to be funny.
+
+{Reactions}
+👆 ✅ 
+
+[09/17/2022 12:09 AM] jpalmz (pinned)
+Hey everyone wanted to post a quick video here explaining the high-level of the protocol. Might be a good starting point if you're looking at the code this weekend! https://www.loom.com/share/8a6a671186b64d479caf634a4f92a3fc
+
+{Embed}
+https://www.loom.com/share/8a6a671186b64d479caf634a4f92a3fc
+Protocol Overview!
+Code4rena - ARCHIVE-Q3-2022 - party-sept12 [1017819538001236080].txt_Files/8a6a671186b64d479caf634a4f92a3fc-00001-9514F.gif
+
+{Reactions}
+aPES_FastParty (9) peepoeyes (6) kazoo (4) C4Keycap (6) 🙏 (5) 
+
+[09/17/2022 12:18 AM] kartoonjoy
+Pinned a message.
+
+
+[09/17/2022 10:05 AM] ch_301
+thanks sir 💯
+
+{Reactions}
+⭐ 
+
+[09/17/2022 5:39 PM] haruxe
+Thanks! These really help :partyblob: 🎊
+
+
+[09/17/2022 5:47 PM] jpalmz
+you got it fam
+
+
+[09/17/2022 5:47 PM] jpalmz
+let us know if there are more questions!
+
+
+[09/17/2022 5:48 PM] jpalmz
+I'm happy to make more videos or post explanations here if you want more background on any contracts / use-cases for the protocol
+
+
+[09/17/2022 5:48 PM] jpalmz
+:kazoo:
+
+
+[09/17/2022 5:49 PM] codingnamekiki
+@jpalmz l can see you watch hunter x hunter, man of culture. :chefskiss:
+
+{Reactions}
+🔥 (2) 
+
+[09/17/2022 5:51 PM] haruxe
+HxH is goated 🐐
+
+
+[09/17/2022 6:59 PM] jpalmz
+I’m in agreement
+
+
+[09/17/2022 9:23 PM] Franfran#5067
+thanks for the video sir
+
+
+[09/17/2022 9:24 PM] ladboy233
+Time to convert all the jusicy finding into the report!
+
+{Reactions}
+🙌 (5) 
+
+[09/17/2022 9:24 PM] ladboy233
+3000 line of code.
+
+
+[09/17/2022 9:24 PM] ladboy233
+the LOC is definitely large comparing to other project.
+
+
+[09/17/2022 9:25 PM] brianle
+👀
+
+
+[09/18/2022 1:29 AM] jpalmz
+Excited to see what you put together!
+
+
+[09/18/2022 1:29 AM] jpalmz
+Thank you ladboy!
+
+
+[09/18/2022 1:29 AM] jpalmz
+You got it fam
+
+
+[09/18/2022 4:02 AM] slightscan
+https://github.com/PartyDAO/party-contracts-c4/blob/main/contracts/crowdfund/Crowdfund.sol/#L414 Do these blocks add a feature to the code or are just for styling? I have also noticed them in other projects, where they don't seem to add any value. I understand they could block scope variables, but in this case they don't seem to be doing that.
+
+
+[09/18/2022 4:08 AM] brianle
+we don't need the `CrowdfundLifecycle lc` after its checked so we just scope it, its just habit
+
+{Reactions}
+👍 (2) 
+
+[09/18/2022 4:08 AM] brianle
+doesnt do any harm
+
+
+[09/18/2022 10:27 AM] 0xa5df
+It's also good for preventing `stack too deep` errors, in this case it's not needed but in case you have too many local variables in the function it can cause this error and scoping them can prevent that
+
+{Reactions}
+👍 (4) 
+
+[09/18/2022 12:03 PM] .tointer
+And scopes could nicely fold and unfold in IDE, can be convenient
+
+
+[09/18/2022 1:46 PM] csanuragjain
+I have few questions, whom can i ping?
+
+
+[09/18/2022 2:13 PM] haruxe
+@.jpalmz, @.lawrence-forman, @.0xble, @.steveklebanoff, @.marcus, @.samedayjeremy and @.justinw
+
+
+[09/18/2022 2:14 PM] csanuragjain
+I mean who is currently online 🙂
+
+
+[09/18/2022 2:14 PM] csanuragjain
+I pinged 2 from team but no reply
+
+
+[09/18/2022 2:14 PM] haruxe
+oh :LUL_devcord:
+
+
+[09/18/2022 2:28 PM] Franfran#5067
+same
+
+
+[09/18/2022 3:24 PM] trust90
+How many crits are you sitting on my boy?
+
+
+[09/18/2022 4:08 PM] merklejerk
+I'm up now
+
+
+[09/18/2022 4:08 PM] merklejerk
+What's up
+
+
+[09/18/2022 4:10 PM] csanuragjain
+@lawrence-forman dmed you
+
+{Reactions}
+👍 (2) 
+
+[09/18/2022 4:31 PM] trust90
+Also me
+
+{Reactions}
+👍 (2) 
+
+[09/18/2022 7:56 PM] ladboy233
+three. I feel like at least two should be legit. we will see.
+
+{Reactions}
+🌟 (3) 
+
+[09/18/2022 7:56 PM] ladboy233
+:C4Keycap:
+
+
+[09/18/2022 9:55 PM] jpalmz
+just 1 day left in the contest! good luck everyone 😎
+
+{Reactions}
+🔥 (8) 
+
+[09/19/2022 4:17 AM] high_byte
+I found a small issue. while my warden status is being updated I can't submit. anyone I can submit to?
+
+
+[09/19/2022 4:18 AM] high_byte
+@HardlyDifficult @Albert | Injective @JtP | WATCHPUG ^
+
+
+[09/19/2022 7:56 AM] trust90
+waiting for the afterParty later today 🎉
+
+{Reactions}
+👍 (4) 
+
+[09/19/2022 2:20 PM] CRYP70#8985
+*whew*, that was rigorous - see ya'll on the other side 🤙
+
+{Reactions}
+🤙 (4) 
+
+[09/19/2022 4:45 PM] jpalmz
+ty 🫡
+
+{Reactions}
+🖖 
+
+[09/19/2022 8:02 PM] C4
+**🚨 CONTEST ALERT**
+
+@🐺wardens The Party DAO contest is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: the Party Protocol team will review the findings over the next couple of days, and then we'll pass them off to the judge. Keep an eye on #📢announcements for regular updates on how the contest is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a gardener if you have questions along the way!
+
+{Reactions}
+C4Keycap (7) 
+
+[10/17/2022 9:30 PM] ladboy233
+https://github.com/code-423n4/code423n4.com/pull/4454/files
+
+{Embed}
+https://github.com/code-423n4/code423n4.com/pull/4454/files
+Add PartyBid to Leaderboard by liveactionllama · Pull Request #4454...
+Code4rena - ARCHIVE-Q3-2022 - party-sept12 [1017819538001236080].txt_Files/98446738-1A1F9
+
+
+[10/17/2022 9:30 PM] ladboy233
+reward is here.
+
+
+[10/17/2022 9:30 PM] ladboy233
+@Trust you are doing so well bro! Congrats!
+
+{Reactions}
+😊 
+
+[10/17/2022 9:33 PM] ladboy233
+this one is fast. Within a month lol
+
+
+[10/17/2022 9:33 PM] 100proof
+Yeah, this is ideal.
+
+
+[10/17/2022 9:35 PM] ladboy233
+yes this is ideal!
+
+
+[10/17/2022 9:35 PM] 100proof
+Heh, I think I meant to say this is _the_ ideal.
+
+
+[10/17/2022 9:35 PM] 100proof
+As in, C4 is aiming for this.
+
+
+[10/17/2022 9:35 PM] 100proof
+But a lot of it seems to be out of their control.
+
+
+[10/17/2022 9:36 PM] ladboy233
+Yeap. I can imagine when judge needs to audit tons of submission and need to do the back and forth communicates with the project.
+
+
+[10/17/2022 9:36 PM] ladboy233
+Big thumb up to the judge and C4!
+
+{Reactions}
+👍 
+
+[10/17/2022 9:36 PM] ladboy233
+:C4Keycap:
+
+
+[10/17/2022 9:36 PM] 100proof
+And huge thumbs up to the sponsors too, for being so responsive.
+
+
+[10/17/2022 9:45 PM] trust90
+Great judging and awesome contest overall
+
+{Reactions}
+🎉 (3) 
+
+[10/18/2022 2:01 AM] itsmetechjay
+🤑 🎉 Awards for **Party DAO**:
+
+$17,083.74 USDC » @Roman 
+$13,443.26 USDC » @Trust 
+$13,012.21 USDC » @0x52 
+$4,818.08 USDC » @csanuragjain 
+$3,406.85 USDC » @cccz 
+$2,899.28 USDC » @8olidity 
+$2,015.34 USDC » @bin2chen 
+$1,932.85 USDC » @hyh 
+$1,858.13 USDC » @ladboy233小伙子 
+$1,676.18 USDC » CertoraInc (@egjlmn1, @Ori Dabush, @shakedwinder, @RoiEvenHaim, @ItayG)
+$952.14 USDC » @smiling_heretic 
+$639.56 USDC » V_B (@Barichek, @Vlad B | zkSync)
+$606.13 USDC » @rvierdiiev 
+$521.87 USDC » @0xA5DF 
+$483.57 USDC » @Ch_301 
+$434.64 USDC » @Jeiwan 
+$375.53 USDC » @0xSmartContract 
+$352.26 USDC » @slightscan 
+$352.26 USDC » @rbserver 
+$279.99 USDC » @Chom 
+$262.75 USDC » @pfapostol 
+$230.85 USDC » @brgltd 
+$199.60 USDC » @c3phas 
+$198.10 USDC » @0xNazgul 
+$174.38 USDC » @m_Rassska 
+$165.86 USDC » @JC
+$161.80 USDC » @Deivitto 
+$151.26 USDC » @CodingNameKiki 
+$141.35 USDC » @ayeslick 
+$140.16 USDC » @MiloTruck 
+$139.89 USDC » @ReyAdmirado 
+$129.67 USDC » @gogo 
+$125.55 USDC » @0x1f8b 
+$121.98 USDC » @CRYP70 
+$120.10 USDC » @Sloth 
+$119.22 USDC » @bulej93 
+$118.65 USDC » @RaymondFam 
+$118.64 USDC » @EricTee 
+$118.19 USDC » @leosathya 
+$117.98 USDC » @__141345__ 
+$117.97 USDC » @code-cipher 
+$117.90 USDC » @fatherOfBlocks 
+$117.87 USDC » @lukris02 
+$117.75 USDC » @Funen 
+$117.73 USDC » @malinariy 
+$117.73 USDC » @0x5rings 
+$117.71 USDC » @PaludoX0 
+$117.71 USDC » @ch0bu 
+$117.70 USDC » @Christian Kuri 
+$117.70 USDC » @slowmoses 
+$117.70 USDC » @delfin454000 
+$117.69 USDC » @djxploit 
+$117.69 USDC » @martin11 
+$117.69 USDC » @Tomo | NinjAudit 
+$117.69 USDC » @olivierdem 
+$117.69 USDC » @anon 
+$117.69 USDC » @tnevler 
+$117.69 USDC » @B2
+$117.68 USDC » @StevenL 
+$117.68 USDC » @d3e4 
+$100.13 USDC » @cryptphi
+
+
+[10/18/2022 2:01 AM] itsmetechjay
+$89.95 USDC » @R2
+$86.63 USDC » @0xbepresent 
+$83.56 USDC » @hansfriese 
+$82.74 USDC » @pedr02b2 
+$82.48 USDC » @wagmi 
+$82.42 USDC » KIntern_NA (@TrungOre, @duc)
+$82.34 USDC » The_GUILD (@David_, @Ephraim, @LeoGold, @greatsamist)
+$82.34 USDC » @Anth3m 
+$82.34 USDC » @0xDanielC 
+$82.34 USDC » @Jancem 
+$82.34 USDC » @MasterCookie 
+$82.34 USDC » @indijanc 
+$46.70 USDC » @Rolezn 
+$40.18 USDC » @0xkatana 
+$40.18 USDC » JAGADESH 
+$40.18 USDC » @Sm4rty 
+$37.44 USDC » @ajtra 
+$37.44 USDC » @peiw 
+$37.44 USDC » @SnowMan 
+$36.30 USDC » @Prasant Gupta 
+$36.30 USDC » @Rohan 
+$35.87 USDC » @Bnke 
+$35.63 USDC » @gianganhnguyen 
+$35.63 USDC » @karanctf 
+$35.63 USDC » @Tomio 
+$35.48 USDC » @sryysryy 
+$35.43 USDC » @Ignacio 
+$35.37 USDC » @Metatron 
+$35.37 USDC » @Waze 
+$35.36 USDC » @robee 
+$35.36 USDC » @Saintcode_ 
+$35.35 USDC » @jag 
+$35.35 USDC » @got_targ 
+$35.35 USDC » @Amithuddar 
+$35.35 USDC » @Fitraldys 
+$35.35 USDC » @LéoS 
+$35.35 USDC » @Natzuu 
+$35.35 USDC » @simon135 
+$35.35 USDC » @Diraco 
+$35.35 USDC » @francoHacker 
+$35.35 USDC » @Noah3o6 
+$35.35 USDC » @Ocean_Sky 
+$35.35 USDC » @dharma09 
+$35.35 USDC » @IgnacioB 
+$35.35 USDC » @peanuts 
+$35.35 USDC » @0x85102 
+$35.35 USDC » @aysha 
+$35.35 USDC » @Matin 
+$35.35 USDC » @pashov 
+
+🏁 Findings summary
+---------------------------
+High risk findings: 11 total, 7 unique
+Med risk findings: 23 total, 12 unique
+Gas optimization reports: 82
+QA reports: 67
+
+Awards will be distributed on Polygon within the next 1-2 weeks. Congratulations all! 💸 💸 💸
+
+*Note: If you participated in this contest and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions. *
+
+{Reactions}
+🥳 (17) C4Keycap (10) ✅ (6) 💯 (5) 4739_Skeletor (2) 🚀 (4) goose 
+
+[10/18/2022 2:02 AM] ladboy233
+let us party！
+
+
+[10/18/2022 5:13 PM] franco_btc
+thanks...
+
+
+[10/18/2022 7:36 PM] franco_btc
+please upload all the reports of this contest to the reports of code4rena I would like to be able to study them all to learn how to better audit smart contracts
+
+
+[10/19/2022 4:26 AM] _oceansky
+Thank you for the rewards. party party haha
+
+
+[11/21/2022 6:41 AM] pfapostol
+Today I noticed that the report that I made for 3 days was marked as "Unhelpful bot report", but still got 98 points. Weird. 😀
+https://github.com/code-423n4/2022-09-party-findings/issues/97
+
+{Embed}
+https://github.com/code-423n4/2022-09-party-findings/issues/97
+Gas Optimizations · Issue #97 · code-423n4/2022-09-party-findings
+See the markdown file with the details of this report here.
+Code4rena - ARCHIVE-Q3-2022 - party-sept12 [1017819538001236080].txt_Files/97-2A1B4
+
+{Reactions}
+😂 (5) thisisfine (2) 
+
+==============================================================
+Exported 104 message(s)
+==============================================================
